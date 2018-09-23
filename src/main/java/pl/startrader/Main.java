@@ -15,6 +15,12 @@ public class Main {
         HeavenlyBody earth = HeavenlyBodyFactory.getHeavenlyBody("Planet", "Earth", 10);
         System.out.println(earth.toString());
 
+        System.out.println(Dice.getDice().throwModifiedDice(6,-2, false));
+        System.out.println(Dice.getDice().throwModifiedDice(8,-3, true));
+
+        System.out.println(Dice.getDice().throwDice(-5));
+
+        System.out.println(Dice.getDice().throwMultipleDices(3,6));
     }
 
 }

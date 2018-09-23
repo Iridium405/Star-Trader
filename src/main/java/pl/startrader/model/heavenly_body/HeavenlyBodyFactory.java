@@ -5,9 +5,9 @@ public class HeavenlyBodyFactory {
     public static HeavenlyBody getHeavenlyBody(String type, String name, int size) {
 
         if("Planet".equalsIgnoreCase(type)) {
-            return new Planet(type, name, size);
+            return new Planet(name, size);
         } else if ("Asteroid".equalsIgnoreCase(type)) {
-            return new Asteroid(type, name, size);
+            return new Asteroid(name, size);
         } else {
             return null;
         }
