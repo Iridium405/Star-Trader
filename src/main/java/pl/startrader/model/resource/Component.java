@@ -6,8 +6,8 @@ public class Component extends Resource {
     private String name;
     private int quantity;
 
-    public Component(String type, String name, int quantity) {
-        this.type = type;
+    public Component(String name, int quantity) {
+        this.type = "Component";
         this.name = name;
         this.quantity = quantity;
     }

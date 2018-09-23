@@ -1,4 +1,4 @@
-package pl.startrader.model.heavenlyBody;
+package pl.startrader.model.heavenly_body;
 
 public class Planet extends HeavenlyBody {
 
@@ -6,8 +6,8 @@ public class Planet extends HeavenlyBody {
     private String name;
     private int size;
 
-    public Planet(String type, String name, int size) {
-        this.type = type;
+    public Planet(String name, int size) {
+        this.type = "Planet";
         this.name = name;
         this.size = size;
     }

@@ -6,8 +6,8 @@ public class Polymer extends Resource {
     private String name;
     private int quantity;
 
-    public Polymer(String type, String name, int quantity) {
-        this.type = type;
+    public Polymer(String name, int quantity) {
+        this.type = "Polymer";
         this.name = name;
         this.quantity = quantity;
     }

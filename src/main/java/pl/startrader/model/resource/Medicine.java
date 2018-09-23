@@ -6,8 +6,8 @@ public class Medicine extends Resource {
     private String name;
     private int quantity;
 
-    public Medicine(String type, String name, int quantity) {
-        this.type = type;
+    public Medicine(String name, int quantity) {
+        this.type = "Medicine";
         this.name = name;
         this.quantity = quantity;
     }

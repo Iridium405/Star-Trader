@@ -1,7 +1,7 @@
 package pl.startrader;
 
-import pl.startrader.model.heavenlyBody.HeavenlyBody;
-import pl.startrader.model.heavenlyBody.HeavenlyBodyFactory;
+import pl.startrader.model.heavenly_body.HeavenlyBody;
+import pl.startrader.model.heavenly_body.HeavenlyBodyFactory;
 import pl.startrader.model.resource.Resource;
 import pl.startrader.model.resource.ResourceFactory;
 

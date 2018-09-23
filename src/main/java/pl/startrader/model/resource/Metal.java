@@ -6,8 +6,8 @@ public class Metal extends Resource {
     private String name;
     private int quantity;
 
-    public Metal(String type, String name, int quantity) {
-        this.type = type;
+    public Metal(String name, int quantity) {
+        this.type = "Metal";
         this.name = name;
         this.quantity = quantity;
     }

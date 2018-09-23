@@ -6,8 +6,8 @@ public class Mineral extends Resource {
     private String name;
     private int quantity;
 
-    public Mineral(String type, String name, int quantity) {
-        this.type = type;
+    public Mineral(String name, int quantity) {
+        this.type = "Mineral";
         this.name = name;
         this.quantity = quantity;
     }

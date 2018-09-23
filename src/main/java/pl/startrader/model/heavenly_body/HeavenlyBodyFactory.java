@@ -1,4 +1,4 @@
-package pl.startrader.model.heavenlyBody;
+package pl.startrader.model.heavenly_body;
 
 public class HeavenlyBodyFactory {
 

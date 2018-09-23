@@ -6,8 +6,8 @@ public class Food extends Resource {
     private String name;
     private int quantity;
 
-    public Food(String type, String name, int quantity) {
-        this.type = type;
+    public Food(String name, int quantity) {
+        this.type = "Food";
         this.name = name;
         this.quantity = quantity;
     }
