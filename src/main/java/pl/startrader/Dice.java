@@ -30,6 +30,14 @@ public class Dice {
     }
 
 
+    /**
+     *
+     * @param   numberOfSides   an Integer representing number of sides of the dice. Must be positive.
+     * @param   modification    modified value of the throw. Must be a natural number.
+     * @param   bordered        if true, the lowest value after modification can be 1.
+     *                          If false, the result can go below 1.
+     * @return  an Integer value after modification of the single throw.
+     */
     public Integer throwModifiedDice (Integer numberOfSides, Integer modification, boolean bordered) {
         Integer diceRoll = throwDice(numberOfSides);
         System.out.println(diceRoll);
@@ -46,6 +54,12 @@ public class Dice {
     }
 
 
+    /**
+     *
+     * @param   rolls           an Integer representing how many dice rolls will be made.
+     * @param   numberOfSides   an Integer representing number of sides of the dice. Must be positive.
+     * @return  ArrayList containing all throws made by single method usage.
+     */
     public List<Integer> throwMultipleDices (int rolls, int numberOfSides ) {
         List<Integer> rollsList = new ArrayList<Integer>();
         for (int roll = 1; roll <= rolls; roll++) {

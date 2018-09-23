@@ -36,7 +36,7 @@ public class PlayerTwo {
         this.diceRolls = new ArrayList<Integer>();
     }
 
-    public static synchronized PlayerTwo getPlayerTwo() {
+    public static synchronized PlayerTwo getInstance() {
         if(instance == null) {
             instance = new PlayerTwo();
         }
@@ -110,5 +110,17 @@ public class PlayerTwo {
 
     public List<Integer> getDiceRolls() {
         return diceRolls;
+    }
+
+    public void addDiceRoll(Integer numberOfSides) {
+        diceRolls.clear();
+        diceRolls.add(Dice.getDice().throwDice(numberOfSides));
+    }
+
+    public void addMultipleDiceRolls(Integer rolls, Integer numberOfSides) {
+        diceRolls.clear();
+        for(int roll = 1; roll <= rolls; roll++) {
+            diceRolls.add(Dice.getDice().throwDice(numberOfSides));
+        }
     }
 }
