@@ -3,23 +3,16 @@ package pl.startrader.model.resource;
 public class Medicine extends Resource {
 
     private String type;
-    private String name;
     private int quantity;
 
-    public Medicine(String name, int quantity) {
+    public Medicine(int quantity) {
         this.type = "Medicine";
-        this.name = name;
         this.quantity = quantity;
     }
 
     @Override
     public String getType() {
         return this.type;
-    }
-
-    @Override
-    public String getName() {
-        return this.name;
     }
 
     @Override

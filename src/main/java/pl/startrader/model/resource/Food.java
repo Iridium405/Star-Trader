@@ -3,23 +3,16 @@ package pl.startrader.model.resource;
 public class Food extends Resource {
 
     private String type;
-    private String name;
     private int quantity;
 
-    public Food(String name, int quantity) {
+    public Food(int quantity) {
         this.type = "Food";
-        this.name = name;
         this.quantity = quantity;
     }
 
     @Override
     public String getType() {
         return this.type;
-    }
-
-    @Override
-    public String getName() {
-        return this.name;
     }
 
     @Override

@@ -21,6 +21,7 @@ public class PlayerTwo {
 
     private List<Starship> shipList;
     private List<Message> inbox;
+    private List<Integer> diceRolls;
 
     private PlayerTwo() {
         this.name = "";
@@ -32,6 +33,7 @@ public class PlayerTwo {
         this.overallReputation = 20;
         this.shipList = new ArrayList<Starship>();
         this.inbox = new ArrayList<Message>();
+        this.diceRolls = new ArrayList<Integer>();
     }
 
     public static synchronized PlayerTwo getPlayerTwo() {
@@ -62,20 +64,40 @@ public class PlayerTwo {
         return accountBalance;
     }
 
+    public void setAccountBalance(Double accountBalance) {
+        this.accountBalance = accountBalance;
+    }
+
     public Integer getCriminalConnections() {
         return criminalConnections;
+    }
+
+    public void setCriminalConnections(Integer criminalConnections) {
+        this.criminalConnections = criminalConnections;
     }
 
     public Integer getPoliticalConnections() {
         return politicalConnections;
     }
 
+    public void setPoliticalConnections(Integer politicalConnections) {
+        this.politicalConnections = politicalConnections;
+    }
+
     public Integer getEconomicConnections() {
         return economicConnections;
     }
 
+    public void setEconomicConnections(Integer economicConnections) {
+        this.economicConnections = economicConnections;
+    }
+
     public Integer getOverallReputation() {
         return overallReputation;
+    }
+
+    public void setOverallReputation(Integer overallReputation) {
+        this.overallReputation = overallReputation;
     }
 
     public List<Starship> getShipList() {
@@ -84,5 +106,9 @@ public class PlayerTwo {
 
     public List<Message> getInbox() {
         return inbox;
+    }
+
+    public List<Integer> getDiceRolls() {
+        return diceRolls;
     }
 }
