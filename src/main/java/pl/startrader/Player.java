@@ -5,9 +5,9 @@ import pl.startrader.model.starship.Starship;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PlayerTwo {
+public class Player {
 
-    private static PlayerTwo instance;
+    private static Player instance;
 
     private String name;
     private String companyName;
@@ -23,7 +23,7 @@ public class PlayerTwo {
     private List<Message> inbox;
     private List<Integer> diceRolls;
 
-    private PlayerTwo() {
+    private Player() {
         this.name = "";
         this.companyName = "";
         this.accountBalance = 300.0;
@@ -36,9 +36,9 @@ public class PlayerTwo {
         this.diceRolls = new ArrayList<Integer>();
     }
 
-    public static synchronized PlayerTwo getInstance() {
+    public static synchronized Player getInstance() {
         if(instance == null) {
-            instance = new PlayerTwo();
+            instance = new Player();
         }
 
         return instance;

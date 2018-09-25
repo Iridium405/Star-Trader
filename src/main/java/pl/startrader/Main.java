@@ -17,7 +17,7 @@ public class Main {
         System.out.println(earth.toString());
 
         System.out.println(Dice.getDice().throwModifiedDice(6,-2, false));
-        System.out.println(Dice.getDice().throwModifiedDice(8,-3, true));
+        System.out.println(Dice.getDice().throwModifiedDice(6,-3, true));
 
         System.out.println(Dice.getDice().throwDice(-5));
 
@@ -29,11 +29,11 @@ public class Main {
                 HullType.HARP.getMinimumCrewSkill()
         );
 
-        PlayerOne.getInstance().addDiceRoll(6);
-        System.out.println(PlayerOne.getInstance().getDiceRolls());
+        Player.getInstance().addDiceRoll(6);
+        System.out.println(Player.getInstance().getDiceRolls());
 
-        PlayerOne.getInstance().addMultipleDiceRolls(5, 6);
-        System.out.println(PlayerOne.getInstance().getDiceRolls());
+        Player.getInstance().addMultipleDiceRolls(5, 6);
+        System.out.println(Player.getInstance().getDiceRolls());
 
     }
 

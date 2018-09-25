@@ -2,7 +2,7 @@ package pl.startrader;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Dice {
 
@@ -20,7 +20,7 @@ public class Dice {
 
 
     public Integer throwDice (Integer numberOfSides){
-        Random dice = new Random();
+        ThreadLocalRandom dice = ThreadLocalRandom.current();
         try {
             return dice.nextInt(numberOfSides) +1;
         } catch (IllegalArgumentException ex) {
@@ -34,18 +34,18 @@ public class Dice {
      *
      * @param   numberOfSides   an Integer representing number of sides of the dice. Must be positive.
      * @param   modification    modified value of the throw. Must be a natural number.
-     * @param   bordered        if true, the lowest value after modification can be 1.
+     * @param   bounded        if true, the lowest value after modification can be 1.
      *                          If false, the result can go below 1.
      * @return  an Integer value after modification of the single throw.
      */
-    public Integer throwModifiedDice (Integer numberOfSides, Integer modification, boolean bordered) {
+    public Integer throwModifiedDice (Integer numberOfSides, Integer modification, boolean bounded) {
         Integer diceRoll = throwDice(numberOfSides);
         System.out.println(diceRoll);
 
-        if(!bordered) {
+        if(!bounded) {
             return diceRoll + modification;
         } else {
-            if((diceRoll+modification) > 0) {
+            if((diceRoll + modification) > 0) {
                 return diceRoll + modification;
             } else {
                 return 1;
