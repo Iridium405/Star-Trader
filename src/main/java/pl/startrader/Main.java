@@ -2,26 +2,22 @@ package pl.startrader;
 
 import pl.startrader.model.heavenly_body.HeavenlyBody;
 import pl.startrader.model.heavenly_body.HeavenlyBodyFactory;
-import pl.startrader.model.resource.Resource;
-import pl.startrader.model.resource.ResourceFactory;
+import pl.startrader.model.resource.metal.Iridium;
 import pl.startrader.model.starship.HullType;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        Resource titanium = ResourceFactory.getResource("Metal", 15);
-        System.out.println(titanium.toString());
-
         HeavenlyBody earth = HeavenlyBodyFactory.getHeavenlyBody("Planet", "Earth", 10);
         System.out.println(earth.toString());
 
-        System.out.println(Dice.getDice().throwModifiedDice(6,-2, false));
-        System.out.println(Dice.getDice().throwModifiedDice(6,-3, true));
+        System.out.println(Dice.getInstance().throwModifiedDice(6,-2, false));
+        System.out.println(Dice.getInstance().throwModifiedDice(6,-3, true));
 
-        System.out.println(Dice.getDice().throwDice(-5));
+        System.out.println(Dice.getInstance().throwDice(-5));
 
-        System.out.println(Dice.getDice().throwMultipleDices(3,6));
+        System.out.println(Dice.getInstance().throwMultipleDices(3,6));
 
         System.out.println("Minimum crew class for " +
                 HullType.HARP.getName() + " hulls is: " +
@@ -34,6 +30,18 @@ public class Main {
 
         Player.getInstance().addMultipleDiceRolls(5, 6);
         System.out.println(Player.getInstance().getDiceRolls());
+
+        Iridium.getInstance().addQuantity_AlphaVolantis(20);
+        Iridium.getInstance().addQuantity_ThetaTauri(10);
+        Iridium.getInstance().addQuantity_TauCeti(7);
+        Iridium.getInstance().addQuantity_LambdaArietis(17);
+        Iridium.getInstance().addQuantity_MuHerculis(22);
+        System.out.println("Iridium global quantity (should be 76): " + Iridium.getInstance().getGlobalQuantity());
+        Iridium.getInstance().addQuantity_EpsilonEridani(45);
+        System.out.println("Iridium global quantity (should be 121): " + Iridium.getInstance().getGlobalQuantity());
+        Iridium.getInstance().addQuantity_ThetaTauri(3);
+        System.out.println("Iridium Theta Tauri quantity (should be 13): " + Iridium.getInstance().getQuantity_ThetaTauri());
+
 
     }
 
