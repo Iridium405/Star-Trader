@@ -114,13 +114,13 @@ public class Player {
 
     public void addDiceRoll(Integer numberOfSides) {
         diceRolls.clear();
-        diceRolls.add(Dice.getDice().throwDice(numberOfSides));
+        diceRolls.add(Dice.getInstance().throwDice(numberOfSides));
     }
 
     public void addMultipleDiceRolls(Integer rolls, Integer numberOfSides) {
         diceRolls.clear();
         for(int roll = 1; roll <= rolls; roll++) {
-            diceRolls.add(Dice.getDice().throwDice(numberOfSides));
+            diceRolls.add(Dice.getInstance().throwDice(numberOfSides));
         }
     }
 }

@@ -10,7 +10,7 @@ public class Dice {
 
     private Dice(){}
 
-    public static synchronized Dice getDice() {
+    public static synchronized Dice getInstance() {
         if(instance == null) {
             instance = new Dice();
         }
