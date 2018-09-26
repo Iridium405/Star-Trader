@@ -22,7 +22,7 @@ public class Iridium extends Resource {
         return instance;
     }
 
-
+    @Override
     public ResourceParam getParam() {
         return param;
     }

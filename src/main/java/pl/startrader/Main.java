@@ -5,6 +5,8 @@ import pl.startrader.model.heavenly_body.HeavenlyBodyFactory;
 import pl.startrader.model.resource.metal.Antimatter;
 import pl.startrader.model.resource.metal.Iridium;
 import pl.startrader.model.resource.metal.Platinum;
+import pl.startrader.model.resource.mineral.Jade;
+import pl.startrader.model.resource.polymer.Pmma;
 import pl.startrader.model.starship.HullType;
 
 public class Main {
@@ -41,7 +43,8 @@ public class Main {
         Platinum.getInstance().addQuantity_BetaHydri(10);
         System.out.println("Global " + Platinum.getInstance().getParam().getName() + " storage (30): " + Platinum.getInstance().getGlobalQuantity());
 
-        Antimatter.getInstance().getParam().getName();
+        System.out.println(Jade.getInstance().getParam().getType());
+        System.out.println(Pmma.getInstance().getParam().getType());
 
 
 

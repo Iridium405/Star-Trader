@@ -22,7 +22,7 @@ public class Platinum extends Resource {
         return instance;
     }
 
-
+    @Override
     public ResourceParam getParam() {
         return param;
     }

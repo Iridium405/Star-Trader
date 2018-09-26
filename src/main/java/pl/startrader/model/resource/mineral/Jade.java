@@ -22,7 +22,7 @@ public class Jade extends Resource {
         return instance;
     }
 
-
+    @Override
     public ResourceParam getParam() {
         return param;
     }

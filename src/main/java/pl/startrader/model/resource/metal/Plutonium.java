@@ -22,7 +22,7 @@ public class Plutonium extends Resource {
         return instance;
     }
 
-
+    @Override
     public ResourceParam getParam() {
         return param;
     }

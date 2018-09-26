@@ -22,7 +22,7 @@ public class Titanium extends Resource {
         return instance;
     }
 
-
+    @Override
     public ResourceParam getParam() {
         return param;
     }

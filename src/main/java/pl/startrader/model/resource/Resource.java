@@ -57,6 +57,8 @@ public abstract class Resource {
     }
 
 
+    public abstract ResourceParam getParam();
+
 
     public Integer getGlobalQuantity() {
         return this.globalQuantity;

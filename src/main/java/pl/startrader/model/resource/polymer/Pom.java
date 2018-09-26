@@ -22,7 +22,7 @@ public class Pom extends Resource {
         return instance;
     }
 
-
+    @Override
     public ResourceParam getParam() {
         return param;
     }
