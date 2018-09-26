@@ -2,9 +2,10 @@ package pl.startrader.model.starship;
 
 public enum HullType {
 
-    CLARINET("Clarinet", CrewClass.E, 1, 1, 10),
-    VIOLIN("Violin", CrewClass.D, 1, 1, 14),
-    HARP("Harp", CrewClass.D, 2, 3, 16);
+    CLARINET    ("Clarinet", CrewClass.E, 1, 1, 10),
+    VIOLIN      ("Violin", CrewClass.D, 1, 1, 14),
+    HARP        ("Harp", CrewClass.D, 2, 3, 16);
+
 
     private String name;
     private CrewClass minimumCrewSkill;

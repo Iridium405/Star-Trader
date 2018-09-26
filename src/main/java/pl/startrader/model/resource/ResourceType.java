@@ -8,5 +8,5 @@ public enum ResourceType {
     MEDICINE,
     METAL,
     MINERAL,
-    POLYMER;
+    POLYMER
 }

@@ -1,42 +1,29 @@
 package pl.startrader.model.resource.metal;
 
 import pl.startrader.model.resource.Resource;
-import pl.startrader.model.resource.ResourceType;
+import pl.startrader.model.resource.ResourceParam;
 
-public class Platinium extends Resource {
+public class Platinum extends Resource {
 
-    private static Platinium instance;
-
-    private String name;
-    private ResourceType resourceType;
-
+    private static Platinum instance;
+    private ResourceParam param;
 
 
     private Platinum() {
-        this.name = "Platinium";
-        this.resourceType = ResourceType.METAL;
-
+        this.param = ResourceParam.PLATINUM;
     }
 
 
-
-    public static synchronized Platinium getInstance() {
+    public static synchronized Platinum getInstance() {
         if(instance == null) {
-            instance = new Platinium();
+            instance = new Platinum();
         }
 
         return instance;
     }
 
 
-
-    public String getName() {
-        return this.name;
+    public ResourceParam getParam() {
+        return param;
     }
-
-    public ResourceType getResourceType() {
-        return this.resourceType;
-    }
-
-
 }
