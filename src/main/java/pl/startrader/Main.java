@@ -2,7 +2,7 @@ package pl.startrader;
 
 import pl.startrader.model.heavenly_body.HeavenlyBody;
 import pl.startrader.model.heavenly_body.HeavenlyBodyFactory;
-import pl.startrader.model.resource.metal.Antimatter;
+import pl.startrader.model.resource.component.Prototype;
 import pl.startrader.model.resource.metal.Iridium;
 import pl.startrader.model.resource.metal.Platinum;
 import pl.startrader.model.resource.mineral.Jade;
@@ -45,6 +45,10 @@ public class Main {
 
         System.out.println(Jade.getInstance().getParam().getType());
         System.out.println(Pmma.getInstance().getParam().getType());
+
+        Prototype.getInstance().addQuantity_AlphaVolantis(5);
+        Prototype.getInstance().addQuantity_BetaHydri(7);
+        System.out.println(Prototype.getInstance().getParam().getName() + " (Global): " +Prototype.getInstance().getGlobalQuantity());
 
 
 
