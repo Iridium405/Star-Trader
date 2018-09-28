@@ -1,9 +1,10 @@
 package pl.startrader.model.resource.mineral;
 
+import pl.startrader.model.resource.Extraction;
 import pl.startrader.model.resource.Resource;
 import pl.startrader.model.resource.ResourceParam;
 
-public class Dioptase extends Resource {
+public class Dioptase extends Resource implements Extraction {
 
     private static Dioptase instance;
     private ResourceParam param;

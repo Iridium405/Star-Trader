@@ -1,9 +1,10 @@
 package pl.startrader.model.resource.mineral;
 
+import pl.startrader.model.resource.Extraction;
 import pl.startrader.model.resource.Resource;
 import pl.startrader.model.resource.ResourceParam;
 
-public class Jade extends Resource {
+public class Jade extends Resource implements Extraction {
 
     private static Jade instance;
     private ResourceParam param;

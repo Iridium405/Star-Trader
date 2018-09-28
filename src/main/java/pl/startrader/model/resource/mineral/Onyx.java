@@ -1,9 +1,10 @@
 package pl.startrader.model.resource.mineral;
 
+import pl.startrader.model.resource.Extraction;
 import pl.startrader.model.resource.Resource;
 import pl.startrader.model.resource.ResourceParam;
 
-public class Onyx extends Resource {
+public class Onyx extends Resource implements Extraction {
 
     private static Onyx instance;
     private ResourceParam param;

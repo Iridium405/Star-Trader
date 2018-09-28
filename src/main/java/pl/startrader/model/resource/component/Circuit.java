@@ -1,9 +1,10 @@
 package pl.startrader.model.resource.component;
 
+import pl.startrader.model.resource.Production;
 import pl.startrader.model.resource.Resource;
 import pl.startrader.model.resource.ResourceParam;
 
-public class Circuit extends Resource {
+public class Circuit extends Resource implements Production {
 
     private static Circuit instance;
     private ResourceParam param;

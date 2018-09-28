@@ -1,22 +1,23 @@
 package pl.startrader.model.resource.food;
 
+import pl.startrader.model.resource.Production;
 import pl.startrader.model.resource.Resource;
 import pl.startrader.model.resource.ResourceParam;
 
-public class Synthetic extends Resource {
+public class SyntheticFood extends Resource implements Production {
 
-    private static Synthetic instance;
+    private static SyntheticFood instance;
     private ResourceParam param;
 
 
-    private Synthetic() {
+    private SyntheticFood() {
         this.param = ResourceParam.SYNTHETIC;
     }
 
 
-    public static synchronized Synthetic getInstance() {
+    public static synchronized SyntheticFood getInstance() {
         if(instance == null) {
-            instance = new Synthetic();
+            instance = new SyntheticFood();
         }
 
         return instance;

@@ -1,9 +1,10 @@
 package pl.startrader.model.resource.component;
 
+import pl.startrader.model.resource.Production;
 import pl.startrader.model.resource.Resource;
 import pl.startrader.model.resource.ResourceParam;
 
-public class Prototype extends Resource {
+public class Prototype extends Resource implements Production {
 
     private static Prototype instance;
     private ResourceParam param;

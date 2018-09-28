@@ -1,9 +1,10 @@
 package pl.startrader.model.resource.metal;
 
+import pl.startrader.model.resource.Extraction;
 import pl.startrader.model.resource.Resource;
 import pl.startrader.model.resource.ResourceParam;
 
-public class Iridium extends Resource {
+public class Iridium extends Resource implements Extraction {
 
     private static Iridium instance;
     private ResourceParam param;

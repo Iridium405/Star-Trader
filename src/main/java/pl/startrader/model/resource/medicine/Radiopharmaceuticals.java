@@ -1,9 +1,10 @@
 package pl.startrader.model.resource.medicine;
 
+import pl.startrader.model.resource.Production;
 import pl.startrader.model.resource.Resource;
 import pl.startrader.model.resource.ResourceParam;
 
-public class Radiopharmaceuticals extends Resource {
+public class Radiopharmaceuticals extends Resource implements Production {
 
     private static Radiopharmaceuticals instance;
     private ResourceParam param;

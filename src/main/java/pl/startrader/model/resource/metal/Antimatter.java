@@ -1,9 +1,10 @@
 package pl.startrader.model.resource.metal;
 
+import pl.startrader.model.resource.Extraction;
 import pl.startrader.model.resource.Resource;
 import pl.startrader.model.resource.ResourceParam;
 
-public class Antimatter extends Resource {
+public class Antimatter extends Resource implements Extraction {
 
     private static Antimatter instance;
     private ResourceParam param;

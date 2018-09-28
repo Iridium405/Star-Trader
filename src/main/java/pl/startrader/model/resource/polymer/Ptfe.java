@@ -1,9 +1,10 @@
 package pl.startrader.model.resource.polymer;
 
+import pl.startrader.model.resource.Production;
 import pl.startrader.model.resource.Resource;
 import pl.startrader.model.resource.ResourceParam;
 
-public class Ptfe extends Resource {
+public class Ptfe extends Resource implements Production {
 
     private static Ptfe instance;
     private ResourceParam param;

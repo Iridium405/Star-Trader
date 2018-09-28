@@ -1,9 +1,10 @@
 package pl.startrader.model.resource.component;
 
+import pl.startrader.model.resource.Production;
 import pl.startrader.model.resource.Resource;
 import pl.startrader.model.resource.ResourceParam;
 
-public class Photodetector extends Resource {
+public class Photodetector extends Resource implements Production {
 
     private static Photodetector instance;
     private ResourceParam param;

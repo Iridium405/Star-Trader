@@ -1,9 +1,10 @@
 package pl.startrader.model.resource.component;
 
+import pl.startrader.model.resource.Production;
 import pl.startrader.model.resource.Resource;
 import pl.startrader.model.resource.ResourceParam;
 
-public class Accumulator extends Resource {
+public class Accumulator extends Resource implements Production {
 
     private static Accumulator instance;
     private ResourceParam param;
