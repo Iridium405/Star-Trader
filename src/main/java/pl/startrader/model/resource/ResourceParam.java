@@ -1,36 +1,50 @@
 package pl.startrader.model.resource;
 
+import static pl.startrader.model.resource.ResourceType.*;
+
 public enum ResourceParam {
 
-    ACCUMULATOR         ("Accumulator", ResourceType.COMPONENT),
-    CIRCUIT             ("Circuit", ResourceType.COMPONENT),
-    NANOELECTRONICS     ("Nanoelectronics", ResourceType.COMPONENT),
-    PHOTODETECTOR       ("Photodetector", ResourceType.COMPONENT),
-    PROTOTYPE           ("Prototype", ResourceType.COMPONENT),
+    CETTLE          ("Cettle", ANIMAL),
+    EXPERIMENTAL    ("Experimental subjects", ANIMAL),
+    DECORATIVE      ("Decorative animals", ANIMAL),
+    FURS            ("Skins and Furs", ANIMAL),
+    ENDANGERED      ("Endangered species", ANIMAL),
 
-    ANTISEPTICS         ("Antiseptics", ResourceType.MEDICINE),
-    CHEMOTHERAPEUTICS   ("Chemotherapeutics", ResourceType.MEDICINE),
-    GENETICDRUGS        ("Genetic Drugs", ResourceType.MEDICINE),
-    RADIOPHARMACEUTICALS("Radiopharmaceuticals", ResourceType.MEDICINE),
-    VACCINES            ("Vaccines", ResourceType.MEDICINE),
+    ACCUMULATOR     ("Accumulator", COMPONENT),
+    CIRCUIT         ("Circuit", COMPONENT),
+    NANOELECTRONICS ("Nanoelectronics", COMPONENT),
+    PHOTODETECTOR   ("Photodetector", COMPONENT),
+    PROTOTYPE       ("Prototype", COMPONENT),
 
-    ANTIMATTER          ("Antimatter", ResourceType.METAL),
-    IRIDIUM             ("Iridium", ResourceType.METAL),
-    PLATINUM            ("Platinum", ResourceType.METAL),
-    PLUTONIUM           ("Plutonium", ResourceType.METAL),
-    TITANIUM            ("Titanium", ResourceType.METAL),
+    NATURAL         ("Natural food", FOOD),
+    MODIFIED        ("Modified food", FOOD),
+    SYNTETIC        ("Syntetic food", FOOD),
+    SPIECES         ("Spieces", FOOD),
+    PRESERVATIVES   ("Preservatives", FOOD),
 
-    DIOPTASE            ("Dioptase", ResourceType.MINERAL),
-    FLUORITE            ("Fluorite", ResourceType.MINERAL),
-    JADE                ("Jade", ResourceType.MINERAL),
-    ONYX                ("Onyx", ResourceType.MINERAL),
-    RHODONITE           ("Rhodonite", ResourceType.MINERAL),
+    ANTISEPTICS             ("Antiseptics", MEDICINE),
+    CHEMOTHERAPEUTICS       ("Chemotherapeutics", MEDICINE),
+    GENETICDRUGS            ("Genetic Drugs", MEDICINE),
+    RADIOPHARMACEUTICALS    ("Radiopharmaceuticals", MEDICINE),
+    VACCINES                ("Vaccines", MEDICINE),
 
-    BIOPOLYMER          ("Biopolymer", ResourceType.POLYMER),
-    PAN                 ("PAN", ResourceType.POLYMER),
-    PMMA                ("PMMA", ResourceType.POLYMER),
-    POM                 ("POM", ResourceType.POLYMER),
-    PTFE                ("PTFE", ResourceType.POLYMER);
+    ANTIMATTER  ("Antimatter", METAL),
+    IRIDIUM     ("Iridium", METAL),
+    PLATINUM    ("Platinum", METAL),
+    PLUTONIUM   ("Plutonium", METAL),
+    TITANIUM    ("Titanium", METAL),
+
+    DIOPTASE    ("Dioptase", MINERAL),
+    FLUORITE    ("Fluorite", MINERAL),
+    JADE        ("Jade", MINERAL),
+    ONYX        ("Onyx", MINERAL),
+    RHODONITE   ("Rhodonite", MINERAL),
+
+    BIOPOLYMER  ("Biopolymer", POLYMER),
+    PAN         ("PAN", POLYMER),
+    PMMA        ("PMMA", POLYMER),
+    POM         ("POM", POLYMER),
+    PTFE        ("PTFE", POLYMER);
 
 
     private String name;
