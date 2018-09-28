@@ -1,9 +1,10 @@
 package pl.startrader.model.resource.animal;
 
+import pl.startrader.model.resource.Breed;
 import pl.startrader.model.resource.Resource;
 import pl.startrader.model.resource.ResourceParam;
 
-public class Decorative extends Resource {
+public class Decorative extends Resource implements Breed {
 
     private static Decorative instance;
     private ResourceParam param;

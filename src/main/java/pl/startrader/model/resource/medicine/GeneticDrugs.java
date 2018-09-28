@@ -10,7 +10,7 @@ public class GeneticDrugs extends Resource {
 
 
     private GeneticDrugs() {
-        this.param = ResourceParam.GENETICDRUGS;
+        this.param = ResourceParam.GENETIC_DRUGS;
     }
 
 

@@ -20,11 +20,11 @@ public enum ResourceParam {
     NATURAL         ("Natural food", FOOD, 0),
     PRESERVATIVES   ("Preservatives", FOOD, 0),
     SPICES          ("Spices", FOOD, 0),
-    SYNTHETIC        ("Synthetic food", FOOD, 0),
+    SYNTHETIC       ("Synthetic food", FOOD, 0),
 
     ANTISEPTICS             ("Antiseptics", MEDICINE, 0),
     CHEMOTHERAPEUTICS       ("Chemotherapeutics", MEDICINE, 0),
-    GENETICDRUGS            ("Genetic Drugs", MEDICINE, 0),
+    GENETIC_DRUGS           ("Genetic Drugs", MEDICINE, 0),
     RADIOPHARMACEUTICALS    ("Radiopharmaceuticals", MEDICINE, 0),
     VACCINES                ("Vaccines", MEDICINE, 0),
 
@@ -52,11 +52,15 @@ public enum ResourceParam {
     private Integer occupiedSpace;
     private Integer productionDifficulty;
 
+
+
     ResourceParam(String name, ResourceType type, Integer occupiedSpace){
         this.name = name;
         this.type = type;
         this.occupiedSpace = occupiedSpace;
     }
+
+
 
     public String getName() {
         return name;
