@@ -14,17 +14,17 @@ public enum HullType {
 
 
     private String name;
-    private CrewClass minimumCrewSkill;
+    private CrewClass minimumCrewClass;
     private Integer minCrewMembers;
     private Integer maxCrewMembers;
     private HullSize hullSize;
     private Integer moduleCapacity;
 
 
-    HullType(String name, CrewClass minimumCrewSkill, Integer minCrewMembers, Integer maxCrewMembers,
+    HullType(String name, CrewClass minimumCrewClass, Integer minCrewMembers, Integer maxCrewMembers,
              HullSize hullSize, Integer moduleCapacity) {
         this.name = name;
-        this.minimumCrewSkill = minimumCrewSkill;
+        this.minimumCrewClass = minimumCrewClass;
         this.minCrewMembers = minCrewMembers;
         this.maxCrewMembers = maxCrewMembers;
         this.hullSize = hullSize;
@@ -37,8 +37,8 @@ public enum HullType {
         return name;
     }
 
-    public CrewClass getMinimumCrewSkill() {
-        return minimumCrewSkill;
+    public CrewClass getMinimumCrewClass() {
+        return minimumCrewClass;
     }
 
     public Integer getMinCrewMembers() {
