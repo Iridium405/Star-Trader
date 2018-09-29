@@ -14,11 +14,13 @@ public abstract class Starship {
     private Boolean lightWeapon;
     private Boolean mediumWeapon;
     private Boolean heavyWeapon;
+    private Integer freightModule;
+    private Integer passengerModule;
     private Integer maxModulesCapacity;
     private Integer modulesAvailable;
     private HeavenlyBody currentlyStationed;
 
-    public Starship(String name, HullType hullType, Integer modulesAvailable, HeavenlyBody currentlyStationed) {
+    public Starship(String name, HullType hullType) {
         this.name = name;
         this.hullType = hullType;
         this.crewClass = hullType.getMinimumCrewSkill();
@@ -29,9 +31,11 @@ public abstract class Starship {
         this.lightWeapon = false;
         this.mediumWeapon = false;
         this.heavyWeapon = false;
+        this.freightModule = 0;
+        this.passengerModule = 0;
         this.maxModulesCapacity = hullType.getModuleCapacity();
         this.modulesAvailable = hullType.getModuleCapacity();
-        this.currentlyStationed = currentlyStationed;
+        this.currentlyStationed = null;
     }
 
     public String getName() {
@@ -63,12 +67,29 @@ public abstract class Starship {
     }
 
 
+    public Integer getCrewMembers() {
+        return crewMembers;
+    }
+
+    public void setCrewMembers(Integer crewMembers) {
+        this.crewMembers = crewMembers;
+    }
+
 
     public Boolean getHyperdrive() {
         return hyperdrive;
     }
 
-    public void setHyperdrive(Boolean hyperdrive) {
+    public void addHyperdrive(Boolean hyperdrive) {
+        if(!hyperdrive) {
+            if(this.modulesAvailable >= 2) {
+                this.modulesAvailable -= 2;
+            } else {
+                System.out.println("Not enough space in a hull.");
+            }
+        } else {
+            System.out.println("Hyperdrive already installed.");
+        }
         this.hyperdrive = hyperdrive;
     }
 
@@ -78,9 +99,15 @@ public abstract class Starship {
         return onBoardComputer;
     }
 
-    public void setOnBoardComputer(Boolean onBoardComputer) {
-        if(onBoardComputer){
-            modulesAvailable -= 1;
+    public void addOnBoardComputer(Boolean onBoardComputer) {
+        if(!onBoardComputer) {
+            if(this.modulesAvailable >= 1) {
+                this.modulesAvailable -= 1;
+            } else {
+                System.out.println("Not enough space in a hull.");
+            }
+        } else {
+            System.out.println("On-board computer already installed.");
         }
         this.onBoardComputer = onBoardComputer;
     }
@@ -91,7 +118,7 @@ public abstract class Starship {
         return armory;
     }
 
-    public void setArmory(Boolean armory) {
+    public void addArmory(Boolean armory) {
         this.armory = armory;
     }
 
@@ -101,7 +128,7 @@ public abstract class Starship {
         return lightWeapon;
     }
 
-    public void setLightWeapon(Boolean lightWeapon) {
+    public void addLightWeapon(Boolean lightWeapon) {
         this.lightWeapon = lightWeapon;
     }
 
@@ -111,7 +138,7 @@ public abstract class Starship {
         return mediumWeapon;
     }
 
-    public void setMediumWeapon(Boolean mediumWeapon) {
+    public void addMediumWeapon(Boolean mediumWeapon) {
         this.mediumWeapon = mediumWeapon;
     }
 
@@ -121,8 +148,38 @@ public abstract class Starship {
         return heavyWeapon;
     }
 
-    public void setHeavyWeapon(Boolean heavyWeapon) {
+    public void addHeavyWeapon(Boolean heavyWeapon) {
         this.heavyWeapon = heavyWeapon;
+    }
+
+
+
+    public Integer getFreightModule() {
+        return freightModule;
+    }
+
+    public void addFreightModule(Integer freightModule) {
+        if(modulesAvailable >= freightModule) {
+            this.modulesAvailable -= freightModule;
+            this.freightModule = freightModule;
+        } else {
+            System.out.println("Not enough space in a hull. Space left: " + modulesAvailable);
+        }
+    }
+
+
+
+    public Integer getPassengerModule() {
+        return passengerModule;
+    }
+
+    public void addPassengerModule(Integer passengerModule) {
+        if(modulesAvailable >= passengerModule) {
+            this.modulesAvailable -= passengerModule;
+            this.passengerModule = passengerModule;
+        } else {
+            System.out.println("Not enough space in a hull. Space left: " + modulesAvailable);
+        }
     }
 
 
@@ -131,10 +188,10 @@ public abstract class Starship {
         return maxModulesCapacity;
     }
 
-    public void setMaxModulesCapacity(Integer maxModulesCapacity) {
-        this.maxModulesCapacity = maxModulesCapacity;
-    }
 
+    public Integer getModulesAvailable() {
+        return modulesAvailable;
+    }
 
 
     public HeavenlyBody getCurrentlyStationed() {
@@ -144,7 +201,7 @@ public abstract class Starship {
     public void setCurrentlyStationed(HeavenlyBody currentlyStationed) {
         this.currentlyStationed = currentlyStationed;
     }
-    
+
 
 
     public void transport(HeavenlyBody destination){
