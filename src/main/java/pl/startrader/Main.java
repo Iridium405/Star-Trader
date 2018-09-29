@@ -26,7 +26,7 @@ public class Main {
         System.out.println("Minimum crew class for " +
                 HullType.HARP.getName() + " hulls is: " +
                 HullType.HARP.getMinCrewMembers() + "x " +
-                HullType.HARP.getMinimumCrewSkill()
+                HullType.HARP.getMinimumCrewClass()
         );
 
         Player.getInstance().addDiceRoll(6);

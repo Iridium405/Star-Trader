@@ -87,9 +87,23 @@ public abstract class Resource {
     public abstract ResourceParam getParam();
 
 
+    public void create(Integer quantity) {
+        if(quantity > 0) {
+            this.globalQuantity += quantity;
+        }
+    }
+
+    public void destroy(Integer quantity) {
+        if(quantity > 0) {
+            this.globalQuantity -= quantity;
+        }
+    }
+
     public Integer getGlobalQuantity() {
         return this.globalQuantity;
     }
+
+
 
 
 
@@ -98,8 +112,25 @@ public abstract class Resource {
     }
 
     public void addQuantity_GammaLeporis(Integer quantity) {
-        this.quantityGammaLeporis += quantity;
-        this.globalQuantity += quantity;
+        if(quantity > 0) {
+            this.quantityGammaLeporis += quantity;
+        }
+    }
+
+    public Boolean addQuantity_GammaLeporis(Integer quantity, Boolean newlyCreated) {
+        if(newlyCreated) {
+            create(quantity);
+            addQuantity_GammaLeporis(quantity);
+            return true;
+        }
+
+        return false;
+    }
+
+    public void substractQuantity_GammaLeporis(Integer quantity) {
+        if(quantity < 0) {
+            this.quantityGammaLeporis -= quantity;
+        }
     }
 
     public Double getPrice_GammaLeporis() {
@@ -127,8 +158,25 @@ public abstract class Resource {
     }
 
     public void addQuantity_EpsilonEridani(Integer quantity) {
-        this.quantityEpsilonEridani += quantity;
-        this.globalQuantity += quantity;
+        if(quantity > 0) {
+            this.quantityEpsilonEridani += quantity;
+        }
+    }
+
+    public Boolean addQuantity_EpsilonEridani(Integer quantity, Boolean newlyCreated) {
+        if(newlyCreated) {
+            create(quantity);
+            addQuantity_EpsilonEridani(quantity);
+            return true;
+        }
+
+        return false;
+    }
+
+    public void substractQuantity_EpsilonEridani(Integer quantity) {
+        if(quantity < 0) {
+            this.quantityEpsilonEridani -= quantity;
+        }
     }
 
     public Double getPrice_EpsilonEridani() {
@@ -156,8 +204,25 @@ public abstract class Resource {
     }
 
     public void addQuantity_TauCeti(Integer quantity) {
-        this.quantityTauCeti += quantity;
-        this.globalQuantity += quantity;
+        if(quantity > 0) {
+            this.quantityTauCeti += quantity;
+        }
+    }
+
+    public Boolean addQuantity_TauCeti(Integer quantity, Boolean newlyCreated) {
+        if(newlyCreated) {
+            create(quantity);
+            addQuantity_TauCeti(quantity);
+            return true;
+        }
+
+        return false;
+    }
+
+    public void substractQuantity_TauCeti(Integer quantity) {
+        if(quantity < 0) {
+            this.quantityTauCeti -= quantity;
+        }
     }
 
     public Double getPrice_TauCeti() {
@@ -185,8 +250,25 @@ public abstract class Resource {
     }
 
     public void addQuantity_BetaHydri(Integer quantity) {
-        this.quantityBetaHydri += quantity;
-        this.globalQuantity += quantity;
+        if(quantity > 0) {
+            this.quantityBetaHydri += quantity;
+        }
+    }
+
+    public Boolean addQuantity_BetaHydri(Integer quantity, Boolean newlyCreated) {
+        if(newlyCreated) {
+            create(quantity);
+            addQuantity_BetaHydri(quantity);
+            return true;
+        }
+
+        return false;
+    }
+
+    public void substractQuantity_BetaHydri(Integer quantity) {
+        if(quantity < 0) {
+            this.quantityBetaHydri -= quantity;
+        }
     }
 
     public Double getPrice_BetaHydri() {
@@ -214,8 +296,25 @@ public abstract class Resource {
     }
 
     public void addQuantity_SigmaDraconis(Integer quantity) {
-        this.quantitySigmaDraconis += quantity;
-        this.globalQuantity += quantity;
+        if(quantity > 0) {
+            this.quantitySigmaDraconis += quantity;
+        }
+    }
+
+    public Boolean addQuantity_SigmaDraconis(Integer quantity, Boolean newlyCreated) {
+        if(newlyCreated) {
+            create(quantity);
+            addQuantity_SigmaDraconis(quantity);
+            return true;
+        }
+
+        return false;
+    }
+
+    public void substractQuantity_SigmaDraconis(Integer quantity) {
+        if(quantity < 0) {
+            this.quantitySigmaDraconis -= quantity;
+        }
     }
 
     public Double getPrice_SigmaDraconis() {
@@ -243,8 +342,25 @@ public abstract class Resource {
     }
 
     public void addQuantity_MuHerculis(Integer quantity) {
-        this.quantityMuHerculis += quantity;
-        this.globalQuantity += quantity;
+        if(quantity > 0) {
+            this.quantityMuHerculis += quantity;
+        }
+    }
+
+    public Boolean addQuantity_MuHerculis(Integer quantity, Boolean newlyCreated) {
+        if(newlyCreated) {
+            create(quantity);
+            addQuantity_MuHerculis(quantity);
+            return true;
+        }
+
+        return false;
+    }
+
+    public void substractQuantity_MuHerculis(Integer quantity) {
+        if(quantity < 0) {
+            this.quantityMuHerculis -= quantity;
+        }
     }
 
     public Double getPrice_MuHerculis() {
@@ -272,8 +388,25 @@ public abstract class Resource {
     }
 
     public void addQuantity_LambdaArietis(Integer quantity) {
-        this.quantityLambdaArietis += quantity;
-        this.globalQuantity += quantity;
+        if(quantity > 0) {
+            this.quantityLambdaArietis += quantity;
+        }
+    }
+
+    public Boolean addQuantity_LambdaArietis(Integer quantity, Boolean newlyCreated) {
+        if(newlyCreated) {
+            create(quantity);
+            addQuantity_LambdaArietis(quantity);
+            return true;
+        }
+
+        return false;
+    }
+
+    public void substractQuantity_LambdaArietis(Integer quantity) {
+        if(quantity < 0) {
+            this.quantityLambdaArietis -= quantity;
+        }
     }
 
     public Double getPrice_LambdaArietis() {
@@ -301,8 +434,25 @@ public abstract class Resource {
     }
 
     public void addQuantity_ThetaTauri(Integer quantity) {
-        this.quantityThetaTauri += quantity;
-        this.globalQuantity += quantity;
+        if(quantity > 0) {
+            this.quantityThetaTauri += quantity;
+        }
+    }
+
+    public Boolean addQuantity_ThetaTauri(Integer quantity, Boolean newlyCreated) {
+        if(newlyCreated) {
+            create(quantity);
+            addQuantity_ThetaTauri(quantity);
+            return true;
+        }
+
+        return false;
+    }
+
+    public void substractQuantity_ThetaTauri(Integer quantity) {
+        if(quantity < 0) {
+            this.quantityThetaTauri -= quantity;
+        }
     }
 
     public Double getPrice_ThetaTauri() {
@@ -330,8 +480,25 @@ public abstract class Resource {
     }
 
     public void addQuantity_AlphaVolantis(Integer quantity) {
-        this.quantityAlphaVolantis += quantity;
-        this.globalQuantity += quantity;
+        if(quantity > 0) {
+            this.quantityAlphaVolantis += quantity;
+        }
+    }
+
+    public Boolean addQuantity_AlphaVolantis(Integer quantity, Boolean newlyCreated) {
+        if(newlyCreated) {
+            create(quantity);
+            addQuantity_AlphaVolantis(quantity);
+            return true;
+        }
+
+        return false;
+    }
+
+    public void substractQuantity_AlphaVolantis(Integer quantity) {
+        if(quantity < 0) {
+            this.quantityAlphaVolantis -= quantity;
+        }
     }
 
     public Double getPrice_AlphaVolantis() {
