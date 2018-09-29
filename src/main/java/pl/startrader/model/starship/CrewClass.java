@@ -2,7 +2,7 @@ package pl.startrader.model.starship;
 
 public enum CrewClass {
 
-    S   (+5),
+    U   (+5),
     A   (+3),
     B   (+2),
     C   (+1),

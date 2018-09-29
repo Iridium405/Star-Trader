@@ -25,7 +25,7 @@ public class Main {
 
         System.out.println("Minimum crew class for " +
                 HullType.HARP.getName() + " hulls is: " +
-                HullType.HARP.getMinimumCrewSquads() + "x " +
+                HullType.HARP.getMinCrewMembers() + "x " +
                 HullType.HARP.getMinimumCrewSkill()
         );
 

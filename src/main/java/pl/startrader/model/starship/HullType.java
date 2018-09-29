@@ -1,25 +1,37 @@
 package pl.startrader.model.starship;
 
+import static pl.startrader.model.starship.CrewClass.*;
+import static pl.startrader.model.starship.HullSize.*;
+
 public enum HullType {
 
-    CLARINET    ("Clarinet", CrewClass.E, 1, 1, 10),
-    VIOLIN      ("Violin", CrewClass.D, 1, 1, 14),
-    HARP        ("Harp", CrewClass.D, 2, 3, 16);
+    PICCOLO     ("Piccolo", E, 1, 1, XS, 5),
+    CLARINET    ("Clarinet", E, 1, 1, S, 10),
+    VIOLIN      ("Violin", D, 1, 2, S, 14),
+    HARP        ("Harp", D, 1, 3, S, 18),
+    STINGRAY    ("Stingray", C, 2, 5, M, 20);
+
 
 
     private String name;
     private CrewClass minimumCrewSkill;
-    private Integer minimumCrewSquads;
-    private Integer maximumCrewSquads;
-    private Integer capacity;
+    private Integer minCrewMembers;
+    private Integer maxCrewMembers;
+    private HullSize hullSize;
+    private Integer moduleCapacity;
 
-    HullType(String name, CrewClass minimumCrewSkill, Integer minimumCrewSquads, Integer maximumCrewSquads, Integer capacity) {
+
+    HullType(String name, CrewClass minimumCrewSkill, Integer minCrewMembers, Integer maxCrewMembers,
+             HullSize hullSize, Integer moduleCapacity) {
         this.name = name;
         this.minimumCrewSkill = minimumCrewSkill;
-        this.minimumCrewSquads = minimumCrewSquads;
-        this.maximumCrewSquads = maximumCrewSquads;
-        this.capacity = capacity;
+        this.minCrewMembers = minCrewMembers;
+        this.maxCrewMembers = maxCrewMembers;
+        this.hullSize = hullSize;
+        this.moduleCapacity = moduleCapacity;
     }
+
+
 
     public String getName() {
         return name;
@@ -29,15 +41,19 @@ public enum HullType {
         return minimumCrewSkill;
     }
 
-    public Integer getMinimumCrewSquads() {
-        return minimumCrewSquads;
+    public Integer getMinCrewMembers() {
+        return minCrewMembers;
     }
 
-    public Integer getMaximumCrewSquads() {
-        return maximumCrewSquads;
+    public Integer getMaxCrewMembers() {
+        return maxCrewMembers;
     }
 
-    public Integer getCapacity() {
-        return capacity;
+    public HullSize getHullSize() {
+        return hullSize;
+    }
+
+    public Integer getModuleCapacity() {
+        return moduleCapacity;
     }
 }
