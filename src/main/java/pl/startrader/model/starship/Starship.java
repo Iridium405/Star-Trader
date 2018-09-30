@@ -13,8 +13,11 @@ public abstract class Starship {
     private Boolean onBoardComputer;
     private Boolean armory;
     private Boolean lightWeapon;
+    private Integer lightWeaponsAmount;
     private Boolean mediumWeapon;
+    private Integer mediumWeaponsAmount;
     private Boolean heavyWeapon;
+    private Integer heavyWeaponsAmount;
     private Integer freightModules;
     private Integer passengerModules;
     private Integer maxModulesCapacity;
@@ -142,8 +145,43 @@ public abstract class Starship {
         return lightWeapon;
     }
 
-    public void setLightWeapon(Boolean lightWeapon) {
-        this.lightWeapon = lightWeapon;
+    public void addLightWeapon(Integer amount) {
+        Integer amountMod = amount * 2;
+
+        if(this.modulesAvailable >= amountMod) {
+            this.modulesAvailable -= amountMod;
+            this.lightWeaponsAmount += amount;
+            this.mediumWeapon = true;
+            System.out.println(amount + " light weapon modules installed.");
+        } else {
+            System.out.println("Not enough space in a hull. Space left: " + this.modulesAvailable
+                    + ". Space needed: " + amountMod + ".");
+        }
+
+    }
+
+    public void removeLightWeapon(Integer amount) {
+        Integer amountMod = amount * 2;
+
+        if(lightWeapon.equals(true) && amount <= this.lightWeaponsAmount) {
+            this.modulesAvailable += amountMod;
+            this.lightWeaponsAmount -= amount;
+
+            if(this.lightWeaponsAmount > 0) {
+                this.lightWeapon = true;
+            } else if (this.lightWeaponsAmount == 0) {
+                this.lightWeapon = false;
+            } else {
+                System.out.println("Error! lightWeaponsAmount goes below 0.");
+            }
+
+            System.out.println(amount + " light weapon modules removed.");
+
+        } else {
+            System.out.println("Cannot remove such amount of modules or already removed. Modules left: "
+                    + this.heavyWeaponsAmount);
+        }
+
     }
 
 
@@ -152,8 +190,49 @@ public abstract class Starship {
         return mediumWeapon;
     }
 
-    public void setMediumWeapon(Boolean mediumWeapon) {
-        this.mediumWeapon = mediumWeapon;
+    public void addMediumWeapon(Integer amount) {
+        Integer amountMod = amount * 4;
+
+        if(this.hullType.getHullSize().equals(HullSize.XS)) {
+            System.out.println("This hull is too small to install that kind of module.");
+        } else {
+            if(this.modulesAvailable >= amountMod) {
+                this.modulesAvailable -= amountMod;
+                this.mediumWeaponsAmount += amount;
+                this.mediumWeapon = true;
+                System.out.println(amount + " medium weapon modules installed.");
+            } else {
+                System.out.println("Not enough space in a hull. Space left: " + this.modulesAvailable
+                        + ". Space needed: " + amountMod + ".");
+            }
+        }
+    }
+
+    public void removeMediumWeapon(Integer amount) {
+        Integer amountMod = amount * 4;
+
+        if(this.hullType.getHullSize().equals(HullSize.XS)) {
+            System.out.println("Cannot install therefore cannot remove module from that hull.");
+        } else {
+            if(mediumWeapon.equals(true) && amount <= this.mediumWeaponsAmount) {
+                this.modulesAvailable += amountMod;
+                this.mediumWeaponsAmount -= amount;
+
+                if(this.mediumWeaponsAmount > 0) {
+                    this.mediumWeapon = true;
+                } else if (this.mediumWeaponsAmount == 0) {
+                    this.mediumWeapon = false;
+                } else {
+                    System.out.println("Error! mediumWeaponsAmount goes below 0.");
+                }
+
+                System.out.println(amount + " medium weapon modules removed.");
+
+            } else {
+                System.out.println("Cannot remove such amount of modules or already removed. Modules left: "
+                        + this.heavyWeaponsAmount);
+            }
+        }
     }
 
 
@@ -162,8 +241,51 @@ public abstract class Starship {
         return heavyWeapon;
     }
 
-    public void setHeavyWeapon(Boolean heavyWeapon) {
-        this.heavyWeapon = heavyWeapon;
+    public void addHeavyWeapon(Integer amount) {
+        Integer amountMod = amount * 8;
+
+        if(this.hullType.getHullSize().equals(HullSize.XS) ||
+            this.hullType.getHullSize().equals(HullSize.S)) {
+            System.out.println("This hull is too small to install that kind of module.");
+        } else {
+            if(this.modulesAvailable >= amountMod) {
+                this.modulesAvailable -= amountMod;
+                this.heavyWeaponsAmount += amount;
+                this.heavyWeapon = true;
+                System.out.println(amount + " heavy weapon modules installed.");
+            } else {
+                System.out.println("Not enough space in a hull. Space left: " + this.modulesAvailable
+                        + ". Space needed: " + amountMod + ".");
+            }
+        }
+    }
+
+    public void removeHeavyWeapon(Integer amount) {
+        Integer amountMod = amount * 8;
+
+        if(this.hullType.getHullSize().equals(HullSize.XS) ||
+                this.hullType.getHullSize().equals(HullSize.S)) {
+            System.out.println("Cannot install therefore cannot remove module from that hull.");
+        } else {
+            if(heavyWeapon.equals(true) && amount <= this.heavyWeaponsAmount) {
+                this.modulesAvailable += amountMod;
+                this.heavyWeaponsAmount -= amount;
+
+                if(this.heavyWeaponsAmount > 0) {
+                    this.heavyWeapon = true;
+                } else if (this.heavyWeaponsAmount == 0) {
+                    this.heavyWeapon = false;
+                } else {
+                    System.out.println("Error! heavyWeaponsAmount goes below 0.");
+                }
+
+                System.out.println(amount + " heavy weapon modules removed.");
+
+            } else {
+                System.out.println("Cannot remove such amount of modules or already removed. Modules left: "
+                        + this.heavyWeaponsAmount);
+            }
+        }
     }
 
 
