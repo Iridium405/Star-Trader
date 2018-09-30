@@ -69,7 +69,7 @@ public abstract class Starship {
 
     public void setCrewClass(CrewClass crewClass) {
         this.crewClass = crewClass;
-    }
+    } //TODO: Integrate with addCrewMembers
 
 
 
@@ -77,8 +77,12 @@ public abstract class Starship {
         return crewMembers;
     }
 
-    public void setCrewMembers(Integer crewMembers) {
+    public void addCrewMembers(Integer crewMembers) {
         this.crewMembers = crewMembers;
+    }
+
+    public void removeCrewMembers(Integer crewMembers) {
+
     }
 
 
@@ -87,13 +91,18 @@ public abstract class Starship {
         return flightModification;
     }
 
+    public void setFlightModification(Integer flightModification) {
+        this.flightModification = flightModification;
+    }
+
 
 
     public Boolean isHyperdriveInstalled() {
         return hyperdrive;
     }
 
-    public void setHyperdrive(Boolean hyperdrive) {
+    //TODO: Split addHyperdrive() on "add" and "remove".
+    public void addHyperdrive() {
         if(hyperdrive) {
             if(this.modulesAvailable >= 2) {
                 this.modulesAvailable -= 2;
@@ -108,13 +117,18 @@ public abstract class Starship {
         this.hyperdrive = hyperdrive;
     }
 
+    public void removeHyperdirve() {
+
+    }
+
 
 
     public Boolean isOnBoardComputerInstalled() {
         return onBoardComputer;
     }
 
-    public void setOnBoardComputer(Boolean onBoardComputer) {
+    //TODO: Split addOnBoardComputer() on "add" and "remove".
+    public void addOnBoardComputer() {
         if(!onBoardComputer) {
             if(this.modulesAvailable >= 1) {
                 this.modulesAvailable -= 1;
@@ -128,6 +142,10 @@ public abstract class Starship {
         }
         this.onBoardComputer = onBoardComputer;
     }
+    
+    public void removeOnBoardComputer() {
+
+    }
 
 
 
@@ -135,8 +153,13 @@ public abstract class Starship {
         return armory;
     }
 
-    public void setArmory(Boolean armory) {
+    //TODO: Split addArmory() on "add" and "remove".
+    public void addArmory() {
         this.armory = armory;
+    }
+
+    public void removeArmory() {
+
     }
 
 
