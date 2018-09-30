@@ -1,6 +1,10 @@
 package pl.startrader.model.starship;
 
 import pl.startrader.model.heavenly_body.HeavenlyBody;
+import pl.startrader.model.resource.Resource;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public abstract class Starship {
 
@@ -9,6 +13,8 @@ public abstract class Starship {
     private CrewClass crewClass;
     private Integer crewMembers;
     private Integer flightModification;
+    private Integer maxModulesCapacity;
+    private Integer modulesAvailable;
     private Boolean hyperdrive;
     private Boolean onBoardComputer;
     private Boolean armory;
@@ -19,9 +25,10 @@ public abstract class Starship {
     private Boolean heavyWeapon;
     private Integer heavyWeaponsAmount;
     private Integer freightModules;
+    private Integer freightModulesAvailable;
+    private List<Cargo> cargoList;
     private Integer passengerModules;
-    private Integer maxModulesCapacity;
-    private Integer modulesAvailable;
+    private Integer passengerModulesAvailable;
     private HeavenlyBody currentlyStationed;
 
 
@@ -32,6 +39,8 @@ public abstract class Starship {
         this.crewClass = hullType.getMinimumCrewClass();
         this.crewMembers = hullType.getMinCrewMembers();
         this.flightModification = 0;
+        this.maxModulesCapacity = hullType.getModuleCapacity();
+        this.modulesAvailable = hullType.getModuleCapacity();
         this.hyperdrive = false;
         this.onBoardComputer = false;
         this.armory = false;
@@ -39,9 +48,9 @@ public abstract class Starship {
         this.mediumWeapon = false;
         this.heavyWeapon = false;
         this.freightModules = 0;
+        this.freightModulesAvailable = freightModules;
         this.passengerModules = 0;
-        this.maxModulesCapacity = hullType.getModuleCapacity();
-        this.modulesAvailable = hullType.getModuleCapacity();
+        this.passengerModulesAvailable = passengerModules;
         this.currentlyStationed = null;
     }
 
@@ -101,7 +110,7 @@ public abstract class Starship {
         return hyperdrive;
     }
 
-    //TODO: Split addHyperdrive() on "add" and "remove".
+    //TODO: Split addHyperdrive() to "add" and "remove" methods.
     public void addHyperdrive() {
         if(hyperdrive) {
             if(this.modulesAvailable >= 2) {
@@ -127,7 +136,7 @@ public abstract class Starship {
         return onBoardComputer;
     }
 
-    //TODO: Split addOnBoardComputer() on "add" and "remove".
+    //TODO: Split addOnBoardComputer() to "add" and "remove" methods.
     public void addOnBoardComputer() {
         if(!onBoardComputer) {
             if(this.modulesAvailable >= 1) {
@@ -142,7 +151,7 @@ public abstract class Starship {
         }
         this.onBoardComputer = onBoardComputer;
     }
-    
+
     public void removeOnBoardComputer() {
 
     }
@@ -153,7 +162,7 @@ public abstract class Starship {
         return armory;
     }
 
-    //TODO: Split addArmory() on "add" and "remove".
+    //TODO: Split addArmory() to "add" and "remove" methods.
     public void addArmory() {
         this.armory = armory;
     }
@@ -321,9 +330,26 @@ public abstract class Starship {
         if(modulesAvailable >= freightModule) {
             this.modulesAvailable -= freightModule;
             this.freightModules = freightModule;
+            this.cargoList = new ArrayList<>();
         } else {
             System.out.println("Not enough space in a hull. Space left: " + modulesAvailable);
         }
+    }
+
+    public Integer getFreightModulesAvailable() {
+        return freightModulesAvailable;
+    }
+
+
+
+    public List<Cargo> getCargoList() {
+        return cargoList;
+    }
+
+    public void addToCargoList(Resource resource, Integer quantity) {
+        // getCargo(resource, quantity); - CargoFactory
+        // cargoList.add(cargo);
+        this.freightModulesAvailable -= quantity * resource.getParam().getOccupiedSpace();
     }
 
 
@@ -339,6 +365,10 @@ public abstract class Starship {
         } else {
             System.out.println("Not enough space in a hull. Space left: " + modulesAvailable);
         }
+    }
+
+    public Integer getPassengerModulesAvailable() {
+        return passengerModulesAvailable;
     }
 
 
