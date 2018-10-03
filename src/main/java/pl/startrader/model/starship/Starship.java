@@ -88,18 +88,25 @@ public abstract class Starship {
         return crewClass;
     }
 
-    public void setCrewClass(CrewClass crewClass) {
-        this.crewClass = crewClass;
-    } //TODO: Integrate with addCrewMembers
-
 
 
     public Integer getCrewMembers() {
         return crewMembers;
     }
 
+    //Basic method. TODO: Upgrade according to specification.
     public void addCrewMembers(Integer crewMembers) {
-        this.crewMembers = crewMembers;
+        if (crewMembers > 0 && this.crewMembers + crewMembers <= this.hullType.getMaxCrewMembers()) {
+            if (this.crewMembers >= this.hullType.getMinCrewMembers()) {
+                this.flightModification += this.crewClass.getSkillModifier();
+            } else if (this.crewMembers < this.hullType.getMinCrewMembers() && crewMembers > 0) {
+                this.flightModification += -5;
+            } else {
+                System.err.println("Not enough crew members to run that ship.");
+            }
+        } else {
+            System.err.println("Error! Not enough or too many crew members.");
+        }
     }
 
     public void removeCrewMembers(Integer crewMembers) {
@@ -128,13 +135,13 @@ public abstract class Starship {
                     this.flightModification += 2;
                     System.out.println("Hyperdrive installed.");
                 } else {
-                    System.out.println("Not enough space in a hull.");
+                    System.err.println("Not enough space in a hull.");
                 }
             } else {
-                System.out.println("Hyperdrive already installed.");
+                System.err.println("Hyperdrive already installed.");
             }
         } else {
-            System.out.println("This hull is too small to install hyperdrive on it.");
+            System.err.println("This hull is too small to install hyperdrive on it.");
         }
     }
 
@@ -145,7 +152,7 @@ public abstract class Starship {
             this.flightModification -= 2;
             System.out.println("Hyperdrive uninstalled.");
         } else {
-            System.out.println("Install hyperdrive first to uninstall it later.");
+            System.err.println("Install hyperdrive first to uninstall it later.");
         }
     }
 
@@ -163,35 +170,35 @@ public abstract class Starship {
                         this.modulesAvailable -= 1;
                         this.flightModification += 1;
                     } else {
-                        System.out.println("Not enough space in a hull");
+                        System.err.println("Not enough space in a hull");
                     }
                 } else if (this.hullType.getHullSize().equals(HullSize.M)) {
                     if (this.modulesAvailable >= 2) {
                         this.modulesAvailable -= 2;
                         this.flightModification += 2;
                     } else {
-                        System.out.println("Not enough space in a hull");
+                        System.err.println("Not enough space in a hull");
                     }
                 } else if (this.hullType.getHullSize().equals(HullSize.L)) {
                     if (this.modulesAvailable >= 4) {
                         this.modulesAvailable -= 4;
                         this.flightModification += 2;
                     } else {
-                        System.out.println("Not enough space in a hull");
+                        System.err.println("Not enough space in a hull");
                     }
                 } else if (this.hullType.getHullSize().equals(HullSize.XL)) {
                     if (this.modulesAvailable >= 6) {
                         this.modulesAvailable -= 6;
                         this.flightModification += 3;
                     } else {
-                        System.out.println("Not enough space in a hull");
+                        System.err.println("Not enough space in a hull");
                     }
                 } else if (this.hullType.getHullSize().equals(HullSize.XXL)) {
                     if (this.modulesAvailable >= 8) {
                         this.modulesAvailable -= 8;
                         this.flightModification += 3;
                     } else {
-                        System.out.println("Not enough space in a hull");
+                        System.err.println("Not enough space in a hull");
                     }
                 }
 
@@ -199,10 +206,10 @@ public abstract class Starship {
                 System.out.println("On-board computer assistance installed.");
 
             } else {
-                System.out.println("On-board computer assisstance already installed.");
+                System.err.println("On-board computer assisstance already installed.");
             }
         } else {
-            System.out.println("Cannot install on-board computer assisstance in such a small hull.");
+            System.err.println("Cannot install on-board computer assisstance in such a small hull.");
         }
     }
 
@@ -226,7 +233,7 @@ public abstract class Starship {
             }
             System.out.println("On-board computer assisstance uninstalled.");
         } else {
-            System.out.println("Must install on-board computer assisstance first.");
+            System.err.println("Must install on-board computer assisstance first.");
         }
     }
 
@@ -260,7 +267,7 @@ public abstract class Starship {
             this.mediumWeaponInstalled = true;
             System.out.println(amount + " light weapon modules installed.");
         } else {
-            System.out.println("Not enough space in a hull. Space left: " + this.modulesAvailable
+            System.err.println("Not enough space in a hull. Space left: " + this.modulesAvailable
                     + ". Space needed: " + amountMod + ".");
         }
 
@@ -278,13 +285,13 @@ public abstract class Starship {
             } else if (this.lightWeaponsAmount == 0) {
                 this.lightWeaponInstalled = false;
             } else {
-                System.out.println("Error! lightWeaponsAmount goes below 0.");
+                System.err.println("Error! lightWeaponsAmount goes below 0.");
             }
 
             System.out.println(amount + " light weapon modules removed.");
 
         } else {
-            System.out.println("Cannot remove such amount of modules or already removed. Modules left: "
+            System.err.println("Cannot remove such amount of modules or already removed. Modules left: "
                     + this.heavyWeaponsAmount);
         }
 
@@ -300,7 +307,7 @@ public abstract class Starship {
         Integer amountMod = amount * 4;
 
         if(this.hullType.getHullSize().equals(HullSize.XS)) {
-            System.out.println("This hull is too small to install that kind of module.");
+            System.err.println("This hull is too small to install that kind of module.");
         } else {
             if(this.modulesAvailable >= amountMod) {
                 this.modulesAvailable -= amountMod;
@@ -308,7 +315,7 @@ public abstract class Starship {
                 this.mediumWeaponInstalled = true;
                 System.out.println(amount + " medium weapon modules installed.");
             } else {
-                System.out.println("Not enough space in a hull. Space left: " + this.modulesAvailable
+                System.err.println("Not enough space in a hull. Space left: " + this.modulesAvailable
                         + ". Space needed: " + amountMod + ".");
             }
         }
@@ -318,7 +325,7 @@ public abstract class Starship {
         Integer amountMod = amount * 4;
 
         if(this.hullType.getHullSize().equals(HullSize.XS)) {
-            System.out.println("Cannot install therefore cannot remove module from that hull.");
+            System.err.println("Cannot install therefore cannot remove module from that hull.");
         } else {
             if(mediumWeaponInstalled && amount <= this.mediumWeaponsAmount) {
                 this.modulesAvailable += amountMod;
@@ -329,13 +336,13 @@ public abstract class Starship {
                 } else if (this.mediumWeaponsAmount == 0) {
                     this.mediumWeaponInstalled = false;
                 } else {
-                    System.out.println("Error! mediumWeaponsAmount goes below 0.");
+                    System.err.println("Error! mediumWeaponsAmount goes below 0.");
                 }
 
                 System.out.println(amount + " medium weapon modules removed.");
 
             } else {
-                System.out.println("Cannot remove such amount of modules or already removed. Modules left: "
+                System.err.println("Cannot remove such amount of modules or already removed. Modules left: "
                         + this.heavyWeaponsAmount);
             }
         }
@@ -352,7 +359,7 @@ public abstract class Starship {
 
         if(this.hullType.getHullSize().equals(HullSize.XS) ||
             this.hullType.getHullSize().equals(HullSize.S)) {
-            System.out.println("This hull is too small to install that kind of module.");
+            System.err.println("This hull is too small to install that kind of module.");
         } else {
             if(this.modulesAvailable >= amountMod) {
                 this.modulesAvailable -= amountMod;
@@ -360,7 +367,7 @@ public abstract class Starship {
                 this.heavyWeaponInstalled = true;
                 System.out.println(amount + " heavy weapon modules installed.");
             } else {
-                System.out.println("Not enough space in a hull. Space left: " + this.modulesAvailable
+                System.err.println("Not enough space in a hull. Space left: " + this.modulesAvailable
                         + ". Space needed: " + amountMod + ".");
             }
         }
@@ -371,7 +378,7 @@ public abstract class Starship {
 
         if(this.hullType.getHullSize().equals(HullSize.XS) ||
                 this.hullType.getHullSize().equals(HullSize.S)) {
-            System.out.println("Cannot install therefore cannot remove module from that hull.");
+            System.err.println("Cannot install therefore cannot remove module from that hull.");
         } else {
             if(heavyWeaponInstalled && amount <= this.heavyWeaponsAmount) {
                 this.modulesAvailable += amountMod;
@@ -382,13 +389,13 @@ public abstract class Starship {
                 } else if (this.heavyWeaponsAmount == 0) {
                     this.heavyWeaponInstalled = false;
                 } else {
-                    System.out.println("Error! heavyWeaponsAmount goes below 0.");
+                    System.err.println("Error! heavyWeaponsAmount goes below 0.");
                 }
 
                 System.out.println(amount + " heavy weapon modules removed.");
 
             } else {
-                System.out.println("Cannot remove such amount of modules or already removed. Modules left: "
+                System.err.println("Cannot remove such amount of modules or already removed. Modules left: "
                         + this.heavyWeaponsAmount);
             }
         }
@@ -405,8 +412,9 @@ public abstract class Starship {
             this.modulesAvailable -= freightModule;
             this.freightModules = freightModule;
             this.cargoList = new ArrayList<>();
+            System.out.println("Freight module(s) added.");
         } else {
-            System.out.println("Not enough space in a hull. Space left: " + modulesAvailable);
+            System.err.println("Not enough space in a hull. Space left: " + modulesAvailable);
         }
     }
 
@@ -437,7 +445,7 @@ public abstract class Starship {
             this.modulesAvailable -= passengerModule;
             this.passengerModules = passengerModule;
         } else {
-            System.out.println("Not enough space in a hull. Space left: " + modulesAvailable);
+            System.err.println("Not enough space in a hull. Space left: " + modulesAvailable);
         }
     }
 

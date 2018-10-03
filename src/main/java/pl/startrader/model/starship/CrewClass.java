@@ -15,4 +15,9 @@ public enum CrewClass {
     CrewClass(Integer skillModifier) {
         this.skillModifier = skillModifier;
     }
+
+    public Integer getSkillModifier() {
+        return skillModifier;
+    }
+
 }
