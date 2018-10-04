@@ -2,13 +2,25 @@ package pl.startrader.model.heavenly_body;
 
 import pl.startrader.model.resource.Resource;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Planet extends HeavenlyBody {
 
     private String type;
     private String name;
-    private int size;
+    private Integer size;
+    private Integer locationX;
+    private Integer locationY;
+    private Integer locationZ;
+
+    private Character administrator;
+
+    private Integer portClass;
+    private Integer security;
+    private Integer militaryPower;
+
+    private List<Resource> mainPlanetResources;
 
     private List<Resource> productionPermitted;
     private List<Resource> productionForbidden;
@@ -16,11 +28,25 @@ public class Planet extends HeavenlyBody {
     private List<Resource> tradePermitted;
     private List<Resource> tradeForbidden;
 
-    public Planet(String name, int size) {
+
+
+    public Planet(String name, Integer size, Integer locationX, Integer locationY, Integer locationZ) {
         this.type = "Planet";
         this.name = name;
         this.size = size;
+        this.locationX = locationX;
+        this.locationY = locationY;
+        this.locationZ = locationZ;
+
+        this.administrator = null;
+
+        this.portClass = 0;
+        this.security = 0;
+        this.militaryPower = 0;
+
+        this.mainPlanetResources = new ArrayList<>();
     }
+
 
     @Override
     public String getType() {
@@ -33,7 +59,47 @@ public class Planet extends HeavenlyBody {
     }
 
     @Override
-    public int getSize() {
+    public Integer getSize() {
         return this.size;
+    }
+
+    @Override
+    public Integer getLocationX() {
+        return locationX;
+    }
+
+    @Override
+    public Integer getLocationY() {
+        return locationY;
+    }
+
+    @Override
+    public Integer getLocationZ() {
+        return locationZ;
+    }
+
+    @Override
+    public List<Resource> getMainResources() {
+
+        return ;
+    }
+
+    public List<Resource> getProductionPermitted() {
+        return productionPermitted;
+    }
+
+
+    public List<Resource> getProductionForbidden() {
+        return productionForbidden;
+    }
+
+
+    public List<Resource> getTradePermitted() {
+        return tradePermitted;
+    }
+
+
+    public List<Resource> getTradeForbidden() {
+        return tradeForbidden;
     }
 }
