@@ -78,11 +78,31 @@ public class Planet extends HeavenlyBody {
         return locationZ;
     }
 
+
+
+    public Character getAdministrator() {
+        return administrator;
+    }
+
+    public Integer getPortClass() {
+        return portClass;
+    }
+
+    public Integer getSecurity() {
+        return security;
+    }
+
+    public Integer getMilitaryPower() {
+        return militaryPower;
+    }
+
+
     @Override
     public List<Resource> getMainResources() {
-
-        return ;
+        return mainPlanetResources;
     }
+
+
 
     public List<Resource> getProductionPermitted() {
         return productionPermitted;

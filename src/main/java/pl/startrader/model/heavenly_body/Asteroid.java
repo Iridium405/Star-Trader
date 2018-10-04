@@ -1,5 +1,9 @@
 package pl.startrader.model.heavenly_body;
 
+import pl.startrader.model.resource.Resource;
+
+import java.util.List;
+
 public class Asteroid extends HeavenlyBody{
 
     private String type;
@@ -8,7 +12,7 @@ public class Asteroid extends HeavenlyBody{
     private Integer locationX;
     private Integer locationY;
     private Integer locationZ;
-
+    private List<Resource> mainAsteroidResource;
 
 
     public Asteroid(String name, Integer size, Integer locationX, Integer locationY, Integer locationZ) {
@@ -49,5 +53,10 @@ public class Asteroid extends HeavenlyBody{
     @Override
     public Integer getLocationZ() {
         return locationZ;
+    }
+
+    @Override
+    public List<Resource> getMainResources() {
+        return mainAsteroidResource;
     }
 }
