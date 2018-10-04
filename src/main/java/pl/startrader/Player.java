@@ -1,5 +1,6 @@
 package pl.startrader;
 
+import pl.startrader.model.heavenly_body.HeavenlyBody;
 import pl.startrader.model.starship.Starship;
 
 import java.util.ArrayList;
@@ -17,7 +18,15 @@ public class Player {
     private Integer politicalConnections;
     private Integer economicConnections;
 
-    private Integer overallReputation;
+    private Integer reputationGammaLeporis;
+    private Integer reputationEpsilonEridani;
+    private Integer reputationTauCeti;
+    private Integer reputationBetaHydri;
+    private Integer reputationSigmaDraconis;
+    private Integer reputationMuHerculis;
+    private Integer reputationLambdaArietis;
+    private Integer reputationThetaTauri;
+    private Integer reputationAlphaVolantis;
 
     private List<Starship> shipList;
     private List<Message> inbox;
@@ -27,10 +36,21 @@ public class Player {
         this.name = "";
         this.companyName = "";
         this.accountBalance = 300.0;
+
         this.criminalConnections = 0;
         this.politicalConnections = 0;
         this.economicConnections = 0;
-        this.overallReputation = 20;
+
+        this.reputationGammaLeporis = 50;
+        this.reputationEpsilonEridani = 50;
+        this.reputationTauCeti = 50;
+        this.reputationBetaHydri = 50;
+        this.reputationSigmaDraconis = 50;
+        this.reputationMuHerculis = 50;
+        this.reputationLambdaArietis = 50;
+        this.reputationThetaTauri = 50;
+        this.reputationAlphaVolantis = 50;
+
         this.shipList = new ArrayList<Starship>();
         this.inbox = new ArrayList<Message>();
         this.diceRolls = new ArrayList<Integer>();
@@ -52,6 +72,8 @@ public class Player {
         this.name = name;
     }
 
+
+
     public String getCompanyName() {
         return companyName;
     }
@@ -60,6 +82,8 @@ public class Player {
         this.companyName = companyName;
     }
 
+
+
     public Double getAccountBalance() {
         return accountBalance;
     }
@@ -67,6 +91,8 @@ public class Player {
     public void setAccountBalance(Double accountBalance) {
         this.accountBalance = accountBalance;
     }
+
+
 
     public Integer getCriminalConnections() {
         return criminalConnections;
@@ -92,21 +118,63 @@ public class Player {
         this.economicConnections = economicConnections;
     }
 
-    public Integer getOverallReputation() {
-        return overallReputation;
+
+
+    public Integer getReputationGammaLeporis() {
+        return reputationGammaLeporis;
     }
 
-    public void setOverallReputation(Integer overallReputation) {
-        this.overallReputation = overallReputation;
+    public Integer getReputationEpsilonEridani() {
+        return reputationEpsilonEridani;
     }
+
+    public Integer getReputationTauCeti() {
+        return reputationTauCeti;
+    }
+
+    public Integer getReputationBetaHydri() {
+        return reputationBetaHydri;
+    }
+
+    public Integer getReputationSigmaDraconis() {
+        return reputationSigmaDraconis;
+    }
+
+    public Integer getReputationMuHerculis() {
+        return reputationMuHerculis;
+    }
+
+    public Integer getReputationLambdaArietis() {
+        return reputationLambdaArietis;
+    }
+
+    public Integer getReputationThetaTauri() {
+        return reputationThetaTauri;
+    }
+
+    public Integer getReputationAlphaVolantis() {
+        return reputationAlphaVolantis;
+    }
+
+
+    //TODO
+    public void changeReputation(HeavenlyBody planet, Integer change) {
+
+    }
+
+
 
     public List<Starship> getShipList() {
         return shipList;
     }
 
+
+
     public List<Message> getInbox() {
         return inbox;
     }
+
+
 
     public List<Integer> getDiceRolls() {
         return diceRolls;

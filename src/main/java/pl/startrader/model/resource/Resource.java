@@ -94,7 +94,7 @@ public abstract class Resource {
     }
 
     public void destroy(Integer quantity) {
-        if(quantity > 0) {
+        if(quantity > 0 && this.globalQuantity - quantity >= 0) {
             this.globalQuantity -= quantity;
         }
     }
