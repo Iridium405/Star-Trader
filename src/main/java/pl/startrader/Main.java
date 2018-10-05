@@ -13,7 +13,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        HeavenlyBody earth = HeavenlyBodyFactory.getHeavenlyBody("Planet", "Earth", 10);
+        HeavenlyBody earth = HeavenlyBodyFactory.getHeavenlyBody("Planet", "Earth", 10, 5, 6, 0);
         System.out.println(earth.toString());
 
         System.out.println(Dice.getInstance().throwModifiedDice(6,-2, false));
@@ -49,8 +49,6 @@ public class Main {
         Prototype.getInstance().addQuantity_AlphaVolantis(5);
         Prototype.getInstance().addQuantity_BetaHydri(7);
         System.out.println(Prototype.getInstance().getParam().getName() + " (Global): " +Prototype.getInstance().getGlobalQuantity());
-
-
 
 
     }
