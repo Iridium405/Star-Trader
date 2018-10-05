@@ -1,5 +1,7 @@
 package pl.startrader;
 
+import pl.startrader.model.character.Character;
+import pl.startrader.model.character.CharacterFactory;
 import pl.startrader.model.heavenly_body.HeavenlyBody;
 import pl.startrader.model.heavenly_body.HeavenlyBodyFactory;
 import pl.startrader.model.resource.component.Prototype;
@@ -50,6 +52,23 @@ public class Main {
         Prototype.getInstance().addQuantity_BetaHydri(7);
         System.out.println(Prototype.getInstance().getParam().getName() + " (Global): " +Prototype.getInstance().getGlobalQuantity());
 
+        Character crew = CharacterFactory.getCharacter("Crew", 5, 5,5);
+        Character administrator = CharacterFactory.generateCharacter("Administrator", "Mediocre");
+        Character spy = CharacterFactory.generateCharacter("Spy", "Superior");
+        Character randomCrew = CharacterFactory.generateCharacter("Crew", "Random");
+        Character randomCrew2 = CharacterFactory.generateCharacter("Crew", "Random");
+
+        System.out.println("\nCORRECT CHARACTERS:");
+        System.out.println(crew);
+        System.out.println(administrator);
+        System.out.println(spy);
+        System.out.println(randomCrew);
+        System.out.println(randomCrew2);
+
+        System.out.println("\nWRONG CHARACTERS:");
+        Character wrongCharacter1 = CharacterFactory.getCharacter("Spy", 12, -5, 9);
+        Character wrongCharacter2 = CharacterFactory.generateCharacter("Spy", "Wrong");
+        Character wrongCharacter3 = CharacterFactory.generateCharacter("Wrong", "Mediocre");
 
     }
 

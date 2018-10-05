@@ -29,4 +29,12 @@ public class Character {
     public Integer getEconomicConnections() {
         return economicConnections;
     }
+
+    @Override
+    public String toString() {
+        return "\nThis character is " + role + " with connections:\n" +
+                "Criminal: " + getCriminalConnections() + " | " +
+                "Political: " + getPoliticalConnections() + " | " +
+                "Economic: " + getEconomicConnections();
+    }
 }
