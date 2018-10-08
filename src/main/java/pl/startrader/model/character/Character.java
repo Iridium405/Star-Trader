@@ -1,17 +1,23 @@
 package pl.startrader.model.character;
 
-public class Character {
+public abstract class Character {
 
+    private String name;
     private Role role;
     private Integer criminalConnections;
     private Integer politicalConnections;
     private Integer economicConnections;
 
-    public Character(Role role, Integer criminalConnections, Integer politicalConnections, Integer economicConnections) {
+    public Character(String name, Role role, Integer criminalConnections, Integer politicalConnections, Integer economicConnections) {
+        this.name = name;
         this.role = role;
         this.criminalConnections = criminalConnections;
         this.politicalConnections = politicalConnections;
         this.economicConnections = economicConnections;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public Role getRole() {
