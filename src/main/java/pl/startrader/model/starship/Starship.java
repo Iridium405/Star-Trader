@@ -25,6 +25,8 @@ public abstract class Starship {
 
     private Boolean armoryInstalled;
 
+    private Integer basicDamage;
+
     private Boolean lightWeaponInstalled;
     private Integer lightWeaponsAmount;
 
@@ -56,6 +58,7 @@ public abstract class Starship {
         this.hyperdriveInstalled = false;
         this.onBoardComputerInstalled = false;
         this.armoryInstalled = false;
+        this.basicDamage = 0;
         this.lightWeaponInstalled = false;
         this.mediumWeaponInstalled = false;
         this.heavyWeaponInstalled = false;
@@ -245,11 +248,17 @@ public abstract class Starship {
 
     //TODO: Split addArmory() to "add" and "remove" methods.
     public void addArmory() {
-        this.armoryInstalled = armoryInstalled;
+
     }
 
     public void removeArmory() {
 
+    }
+
+
+
+    public Integer getBasicDamage() {
+        return basicDamage;
     }
 
 
@@ -264,7 +273,8 @@ public abstract class Starship {
         if(this.modulesAvailable >= amountMod) {
             this.modulesAvailable -= amountMod;
             this.lightWeaponsAmount += amount;
-            this.mediumWeaponInstalled = true;
+            this.lightWeaponInstalled = true;
+            this.basicDamage += amount;
             System.out.println(amount + " light weapon modules installed.");
         } else {
             System.err.println("Not enough space in a hull. Space left: " + this.modulesAvailable
@@ -279,6 +289,7 @@ public abstract class Starship {
         if(lightWeaponInstalled && amount <= this.lightWeaponsAmount) {
             this.modulesAvailable += amountMod;
             this.lightWeaponsAmount -= amount;
+            this.basicDamage -= amount;
 
             if(this.lightWeaponsAmount > 0) {
                 this.lightWeaponInstalled = true;
@@ -313,6 +324,7 @@ public abstract class Starship {
                 this.modulesAvailable -= amountMod;
                 this.mediumWeaponsAmount += amount;
                 this.mediumWeaponInstalled = true;
+                this.basicDamage += amount * 4;
                 System.out.println(amount + " medium weapon modules installed.");
             } else {
                 System.err.println("Not enough space in a hull. Space left: " + this.modulesAvailable
@@ -330,6 +342,7 @@ public abstract class Starship {
             if(mediumWeaponInstalled && amount <= this.mediumWeaponsAmount) {
                 this.modulesAvailable += amountMod;
                 this.mediumWeaponsAmount -= amount;
+                this.basicDamage -= amount * 4;
 
                 if(this.mediumWeaponsAmount > 0) {
                     this.mediumWeaponInstalled = true;
@@ -365,6 +378,7 @@ public abstract class Starship {
                 this.modulesAvailable -= amountMod;
                 this.heavyWeaponsAmount += amount;
                 this.heavyWeaponInstalled = true;
+                this.basicDamage += amount * 8;
                 System.out.println(amount + " heavy weapon modules installed.");
             } else {
                 System.err.println("Not enough space in a hull. Space left: " + this.modulesAvailable
@@ -383,6 +397,7 @@ public abstract class Starship {
             if(heavyWeaponInstalled && amount <= this.heavyWeaponsAmount) {
                 this.modulesAvailable += amountMod;
                 this.heavyWeaponsAmount -= amount;
+                this.basicDamage -= amount * 8;
 
                 if(this.heavyWeaponsAmount > 0) {
                     this.heavyWeaponInstalled = true;
