@@ -3,7 +3,7 @@ package pl.startrader.model.character;
 public class CharacterGenerator {
 
 
-    public Crew generateCrew(String skill){
+    public static Crew generateCrew(){
         return new Crew("", 0, 0, 0);
     }
 
@@ -11,12 +11,12 @@ public class CharacterGenerator {
     //generateRandomCrew();
 
 
-    public Administrator generateAdministrator(String skill) {
+    public static Administrator generateAdministrator() {
         return new Administrator("", 0, 0 ,0);
     }
 
 
-    public Spy generateSpy(String skill) {
+    public static Spy generateSpy() {
         return new Spy("", 0 ,0 ,0);
     }
 }
