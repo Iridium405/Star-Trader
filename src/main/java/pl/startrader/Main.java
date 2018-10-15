@@ -1,7 +1,8 @@
 package pl.startrader;
 
-import pl.startrader.model.character.Character;
-import pl.startrader.model.character.CharacterFactory;
+
+import pl.startrader.model.character.CharacterGenerator;
+import pl.startrader.model.character.Crew;
 import pl.startrader.model.heavenly_body.HeavenlyBody;
 import pl.startrader.model.heavenly_body.HeavenlyBodyFactory;
 import pl.startrader.model.resource.component.Prototype;
@@ -52,23 +53,35 @@ public class Main {
         Prototype.getInstance().addQuantity_BetaHydri(7);
         System.out.println(Prototype.getInstance().getParam().getName() + " (Global): " +Prototype.getInstance().getGlobalQuantity());
 
-        Character crew = CharacterFactory.getCharacter("Crew", 5, 5,5);
-        Character administrator = CharacterFactory.generateCharacter("Administrator", "Mediocre");
-        Character spy = CharacterFactory.generateCharacter("Spy", "Superior");
-        Character randomCrew = CharacterFactory.generateCharacter("Crew", "Random");
-        Character randomCrew2 = CharacterFactory.generateCharacter("Crew", "Random");
 
-        System.out.println("\nCORRECT CHARACTERS:");
-        System.out.println(crew);
-        System.out.println(administrator);
-        System.out.println(spy);
-        System.out.println(randomCrew);
-        System.out.println(randomCrew2);
+        Crew crewMember_1 = CharacterGenerator.generateCrew();
+        crewMember_1.setName("Janusz Mechanik");
+        System.out.println();
+        System.out.println(crewMember_1.getName() + " LVL: " + crewMember_1.getLevel());
+        System.out.println(crewMember_1.getName() + " SKILL POINTS: " + crewMember_1.getSkillPoints());
+        System.out.println(crewMember_1.getName() + " EXP: " + crewMember_1.getExperience());
+        crewMember_1.addExperience(5);
+        System.out.println(crewMember_1.getName() + " EXP: " + crewMember_1.getExperience());
+        crewMember_1.addExperience(17);
+        System.out.println(crewMember_1.getName() + " LVL: " + crewMember_1.getLevel());
+        System.out.println(crewMember_1.getName() + " EXP: " + crewMember_1.getExperience());
+        System.out.println(crewMember_1.getName() + " SKILL POINTS: " + crewMember_1.getSkillPoints());
+        crewMember_1.addExperience(18);
+        System.out.println(crewMember_1.getName() + " LVL: " + crewMember_1.getLevel());
+        System.out.println(crewMember_1.getName() + " SKILL POINTS: " + crewMember_1.getSkillPoints());
+        System.out.println(crewMember_1.getName() + " EXP: " + crewMember_1.getExperience());
+        System.out.println();
 
-        System.out.println("\nWRONG CHARACTERS:");
-        Character wrongCharacter1 = CharacterFactory.getCharacter("Spy", 12, -5, 9);
-        Character wrongCharacter2 = CharacterFactory.generateCharacter("Spy", "Wrong");
-        Character wrongCharacter3 = CharacterFactory.generateCharacter("Wrong", "Mediocre");
+        System.out.println(crewMember_1.getName() + " MECHANICS: " + crewMember_1.getMechanics());
+        System.out.println(crewMember_1.getName() + " HIT POINTS: " + crewMember_1.getHitPoints());
+
+        crewMember_1.addSkillPoint_Mechanics();
+        crewMember_1.addSkillPoint_Mechanics();
+        crewMember_1.addSkillPoint_HitPoints();
+
+        System.out.println(crewMember_1.getName() + " MECHANICS: " + crewMember_1.getMechanics());
+        System.out.println(crewMember_1.getName() + " HIT POINTS: " + crewMember_1.getHitPoints());
+        System.out.println(crewMember_1.getName() + " SKILL POINTS: " + crewMember_1.getSkillPoints());
 
     }
 

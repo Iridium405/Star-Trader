@@ -52,6 +52,7 @@ public class Crew extends Character {
         if (this.skillPoints >= 1) {
             this.lightWeaponDamage += 1;
             this.skillPoints -= 1;
+            System.out.println("Skill point distributed.");
         }
     }
 
@@ -65,6 +66,7 @@ public class Crew extends Character {
         if (this.skillPoints >= 1) {
             this.mediumWeaponDamage += 1;
             this.skillPoints -= 1;
+            System.out.println("Skill point distributed.");
         }
     }
 
@@ -78,6 +80,7 @@ public class Crew extends Character {
         if (this.skillPoints >= 1) {
             this.heavyWeaponDamage += 1;
             this.skillPoints -= 1;
+            System.out.println("Skill point distributed.");
         }
     }
 
@@ -91,6 +94,7 @@ public class Crew extends Character {
         if (this.skillPoints >= 1) {
             this.hullDurability += 1;
             this.skillPoints -= 1;
+            System.out.println("Skill point distributed.");
         }
     }
 
@@ -104,6 +108,7 @@ public class Crew extends Character {
         if (this.skillPoints >= 1) {
             this.mechanics += 1;
             this.skillPoints -= 1;
+            System.out.println("Skill point distributed.");
         }
     }
 
@@ -117,6 +122,7 @@ public class Crew extends Character {
         if (this.skillPoints >= 1) {
             this.hitPoints += 1;
             this.skillPoints -= 1;
+            System.out.println("Skill point distributed.");
         }
     }
 
@@ -130,6 +136,7 @@ public class Crew extends Character {
         if (this.skillPoints >= 1) {
             this.attack += 1;
             this.skillPoints -= 1;
+            System.out.println("Skill point distributed.");
         }
     }
 
@@ -143,6 +150,7 @@ public class Crew extends Character {
         if (this.skillPoints >= 1) {
             this.defence += 1;
             this.skillPoints -= 1;
+            System.out.println("Skill point distributed.");
         }
     }
 
@@ -152,7 +160,25 @@ public class Crew extends Character {
         return experience;
     }
 
+    public void addExperience(Integer experience) {
+        this.experience += experience;
+        Integer tempLevel = this.level;
+        System.out.println(experience + " exp. added.");
+        if(this.experience >= 20) {
+            this.level += 1;
+            System.out.println("Level up! " + tempLevel + " >>> " + this.level);
+            this.skillPoints += 1;
+            System.out.println(("New skill point aquired."));
+            this.experience -= 20;
+        }
+    }
+
     public Integer getLevel() {
         return level;
     }
+
+    public Integer getSkillPoints() {
+        return skillPoints;
+    }
+
 }
