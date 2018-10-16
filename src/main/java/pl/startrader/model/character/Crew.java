@@ -6,6 +6,7 @@ public class Crew extends Character {
 
 
     private CrewClass crewClass;
+    private Boolean alive;
     private Integer lightWeaponDamage;
     private Integer mediumWeaponDamage;
     private Integer heavyWeaponDamage;
@@ -23,6 +24,7 @@ public class Crew extends Character {
     public Crew(String name, Integer criminalConnections, Integer politicalConnections, Integer economicConnections) {
         super(name, Role.CREW, criminalConnections, politicalConnections, economicConnections);
         this.crewClass = null;
+        this.alive = true;
         this.lightWeaponDamage = 0;
         this.mediumWeaponDamage = 0;
         this.heavyWeaponDamage = 0;
@@ -42,7 +44,9 @@ public class Crew extends Character {
         return crewClass;
     }
 
-
+    public Boolean isAlive() {
+        return alive;
+    }
 
     public Integer getLightWeaponDamage() {
         return lightWeaponDamage;
@@ -126,6 +130,17 @@ public class Crew extends Character {
         }
     }
 
+    public void removeHitPoint() {
+        if (this.hitPoints >= 1) {
+            this.hitPoints -= 1;
+            System.out.println(this.getName() + " lost 1hp.");
+            if (this.hitPoints == 0) {
+                this.alive = false;
+                System.out.println(this.getName() + " has died.");
+            }
+        }
+    }
+
 
 
     public Integer getAttack() {
@@ -161,15 +176,23 @@ public class Crew extends Character {
     }
 
     public void addExperience(Integer experience) {
-        this.experience += experience;
         Integer tempLevel = this.level;
-        System.out.println(experience + " exp. added.");
-        if(this.experience >= 20) {
-            this.level += 1;
-            System.out.println("Level up! " + tempLevel + " >>> " + this.level);
-            this.skillPoints += 1;
-            System.out.println(("New skill point aquired."));
-            this.experience -= 20;
+
+        if (experience > 0) {
+            this.experience += experience;
+            System.out.println(experience + " exp. added.");
+        }
+
+        if (this.level <= 30) {
+            if (this.experience >= 20) {
+                this.level += 1;
+                System.out.println("Level up! " + tempLevel + " >>> " + this.level);
+                this.skillPoints += 1;
+                System.out.println(("New skill point aquired."));
+                this.experience -= 20;
+            }
+        } else {
+            System.out.println("Maximum level reached.");
         }
     }
 
