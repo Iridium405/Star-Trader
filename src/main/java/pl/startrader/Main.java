@@ -54,8 +54,7 @@ public class Main {
         System.out.println(Prototype.getInstance().getParam().getName() + " (Global): " +Prototype.getInstance().getGlobalQuantity());
 
 
-        Crew crewMember_1 = CharacterGenerator.generateCrew();
-        crewMember_1.setName("Janusz Mechanik");
+        Crew crewMember_1 = CharacterGenerator.generateCrew("Janusz Mechanik");
         System.out.println();
         System.out.println(crewMember_1.getName() + " LVL: " + crewMember_1.getLevel());
         System.out.println(crewMember_1.getName() + " SKILL POINTS: " + crewMember_1.getSkillPoints());
@@ -87,6 +86,17 @@ public class Main {
         crewMember_1.removeHitPoint();
         System.out.println(crewMember_1.getName() + " HIT POINTS: " + crewMember_1.getHitPoints());
         crewMember_1.removeHitPoint();
+
+        System.out.println();
+        Crew crewMember_2 = CharacterGenerator.generateCrew("Zdzichu Pilot");
+        crewMember_2.addExperience(20);
+        System.out.println(crewMember_2.getName() + " LVL: " + crewMember_2.getLevel());
+        crewMember_2.addExperience(20);
+        crewMember_2.addExperience(20);
+        crewMember_2.addExperience(20);
+        crewMember_2.addExperience(1);
+        System.out.println(crewMember_2.getName() + " EXP: " + crewMember_2.getExperience());
+        System.out.println(crewMember_2.getName() + " LVL: " + crewMember_2.getLevel());
 
     }
 

@@ -2,6 +2,8 @@ package pl.startrader.model.character;
 
 import pl.startrader.model.starship.CrewClass;
 
+import static pl.startrader.model.starship.CrewClass.*;
+
 public class Crew extends Character {
 
 
@@ -23,7 +25,7 @@ public class Crew extends Character {
 
     public Crew(String name, Integer criminalConnections, Integer politicalConnections, Integer economicConnections) {
         super(name, Role.CREW, criminalConnections, politicalConnections, economicConnections);
-        this.crewClass = null;
+        this.crewClass = E;
         this.alive = true;
         this.lightWeaponDamage = 0;
         this.mediumWeaponDamage = 0;
@@ -44,9 +46,33 @@ public class Crew extends Character {
         return crewClass;
     }
 
+    public void upgradeCrewClass() {
+        if (this.crewClass != U) {
+            if (this.crewClass == E) {
+                this.crewClass = D;
+            } else if (this.crewClass == D) {
+                this.crewClass = C;
+            } else if (this.crewClass == C) {
+                this.crewClass = B;
+            } else if (this.crewClass == B) {
+                this.crewClass = A;
+            } else if (this.crewClass == A) {
+                this.crewClass = U;
+            }
+
+            System.out.println("Crew class upgraded to " + this.crewClass);
+        }else {
+            System.out.println("Crew class cannot be upgraded more.");
+        }
+    }
+
+
+
     public Boolean isAlive() {
         return alive;
     }
+
+
 
     public Integer getLightWeaponDamage() {
         return lightWeaponDamage;
@@ -56,7 +82,7 @@ public class Crew extends Character {
         if (this.skillPoints >= 1) {
             this.lightWeaponDamage += 1;
             this.skillPoints -= 1;
-            System.out.println("Skill point distributed.");
+            System.out.println("Skill point distributed. Light weapons damage increased.");
         }
     }
 
@@ -70,7 +96,7 @@ public class Crew extends Character {
         if (this.skillPoints >= 1) {
             this.mediumWeaponDamage += 1;
             this.skillPoints -= 1;
-            System.out.println("Skill point distributed.");
+            System.out.println("Skill point distributed. Medium weapons damage increased.");
         }
     }
 
@@ -84,7 +110,7 @@ public class Crew extends Character {
         if (this.skillPoints >= 1) {
             this.heavyWeaponDamage += 1;
             this.skillPoints -= 1;
-            System.out.println("Skill point distributed.");
+            System.out.println("Skill point distributed. Heavy weapons damage increased.");
         }
     }
 
@@ -98,7 +124,7 @@ public class Crew extends Character {
         if (this.skillPoints >= 1) {
             this.hullDurability += 1;
             this.skillPoints -= 1;
-            System.out.println("Skill point distributed.");
+            System.out.println("Skill point distributed. Hull durability increased.");
         }
     }
 
@@ -112,7 +138,7 @@ public class Crew extends Character {
         if (this.skillPoints >= 1) {
             this.mechanics += 1;
             this.skillPoints -= 1;
-            System.out.println("Skill point distributed.");
+            System.out.println("Skill point distributed. Mechanics upgraded.");
         }
     }
 
@@ -126,17 +152,17 @@ public class Crew extends Character {
         if (this.skillPoints >= 1) {
             this.hitPoints += 1;
             this.skillPoints -= 1;
-            System.out.println("Skill point distributed.");
+            System.out.println("Skill point distributed. Hit Point added.");
         }
     }
 
     public void removeHitPoint() {
         if (this.hitPoints >= 1) {
             this.hitPoints -= 1;
-            System.out.println(this.getName() + " lost 1hp.");
+            System.out.println(this.getName() + " lost Hit Point.");
             if (this.hitPoints == 0) {
                 this.alive = false;
-                System.out.println(this.getName() + " has died.");
+                System.out.println(this.getName() + " died.");
             }
         }
     }
@@ -151,7 +177,7 @@ public class Crew extends Character {
         if (this.skillPoints >= 1) {
             this.attack += 1;
             this.skillPoints -= 1;
-            System.out.println("Skill point distributed.");
+            System.out.println("Skill point distributed. Character Attack increased.");
         }
     }
 
@@ -165,7 +191,7 @@ public class Crew extends Character {
         if (this.skillPoints >= 1) {
             this.defence += 1;
             this.skillPoints -= 1;
-            System.out.println("Skill point distributed.");
+            System.out.println("Skill point distributed. Character Defence increased.");
         }
     }
 
@@ -183,18 +209,21 @@ public class Crew extends Character {
             System.out.println(experience + " exp. added.");
         }
 
-        if (this.level <= 30) {
+        if (this.level < crewClass.getMaxLevel()) {
             if (this.experience >= 20) {
                 this.level += 1;
-                System.out.println("Level up! " + tempLevel + " >>> " + this.level);
+                System.out.println("Level up! " + this.getName() + " promoted " + tempLevel + " >>> " + this.level);
                 this.skillPoints += 1;
-                System.out.println(("New skill point aquired."));
+                System.out.println(("New skill point acquired."));
                 this.experience -= 20;
             }
         } else {
-            System.out.println("Maximum level reached.");
+            System.out.println("Experience lost. Maximum level reached. ");
+            this.experience = 0;
         }
     }
+
+
 
     public Integer getLevel() {
         return level;

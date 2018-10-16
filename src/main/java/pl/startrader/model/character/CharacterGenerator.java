@@ -3,8 +3,8 @@ package pl.startrader.model.character;
 public class CharacterGenerator {
 
 
-    public static Crew generateCrew(){
-        return new Crew("", 0, 0, 0);
+    public static Crew generateCrew(String name){
+        return new Crew(name, 0, 0, 0);
     }
 
     //generateCustomCrew(...);
