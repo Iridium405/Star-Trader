@@ -4,6 +4,8 @@ package pl.startrader.model.resource;
 public abstract class Resource {
 
 
+    private ResourceParam param;
+
     private Integer globalQuantity;
 
     private Integer quantityGammaLeporis;
@@ -43,7 +45,9 @@ public abstract class Resource {
     private Boolean demandedAlphaVolantis;
 
 
-    public Resource() {
+    public Resource(ResourceParam param) {
+        this.param = param;
+
         this.globalQuantity = 0;
 
         this.quantityGammaLeporis = 0;
@@ -84,12 +88,15 @@ public abstract class Resource {
     }
 
 
-    public abstract ResourceParam getParam();
+    public ResourceParam getParam() {
+        return param;
+    }
 
 
     public void create(Integer quantity) {
         if(quantity > 0) {
             this.globalQuantity += quantity;
+            System.out.println(quantity + "pcs of " + this.param.getName() + " created (added globally).");
         }
     }
 
@@ -111,20 +118,24 @@ public abstract class Resource {
         return this.quantityGammaLeporis;
     }
 
-    public void addQuantity_GammaLeporis(Integer quantity) {
-        if(quantity > 0) {
+    /**
+     * Used for adding resources to stock and globally if needed
+     * .
+     * @param quantity      Quantity of resource. Must be positive.
+     * @param newlyCreated  If false - resources WILL NOT be added globally.
+     *                      Used while trading or moving resources in or out of the planet.
+     *                      If true - resources WILL be added globally as well.
+     *                      Used while extracting/ producing/ breeding new resources.
+     */
+    public void addQuantity_GammaLeporis(Integer quantity, Boolean newlyCreated) {
+        if (quantity > 0) {
+            if (newlyCreated) {
+                create(quantity);
+            }
+
             this.quantityGammaLeporis += quantity;
+            System.out.println(quantity + "pcs of " + this.param.getName() + " added to stock on Gamma Leporis.");
         }
-    }
-
-    public Boolean addQuantity_GammaLeporis(Integer quantity, Boolean newlyCreated) {
-        if(newlyCreated) {
-            create(quantity);
-            addQuantity_GammaLeporis(quantity);
-            return true;
-        }
-
-        return false;
     }
 
     public void substractQuantity_GammaLeporis(Integer quantity) {
@@ -157,20 +168,15 @@ public abstract class Resource {
         return this.quantityEpsilonEridani;
     }
 
-    public void addQuantity_EpsilonEridani(Integer quantity) {
-        if(quantity > 0) {
+    public void addQuantity_EpsilonEridani(Integer quantity, Boolean newlyCreated) {
+        if (quantity > 0) {
+            if (newlyCreated) {
+                create(quantity);
+            }
+
             this.quantityEpsilonEridani += quantity;
+            System.out.println(quantity + "pcs of " + this.param.getName() + " added to stock on Epsilon Eridani.");
         }
-    }
-
-    public Boolean addQuantity_EpsilonEridani(Integer quantity, Boolean newlyCreated) {
-        if(newlyCreated) {
-            create(quantity);
-            addQuantity_EpsilonEridani(quantity);
-            return true;
-        }
-
-        return false;
     }
 
     public void substractQuantity_EpsilonEridani(Integer quantity) {
@@ -203,20 +209,15 @@ public abstract class Resource {
         return this.quantityTauCeti;
     }
 
-    public void addQuantity_TauCeti(Integer quantity) {
-        if(quantity > 0) {
+    public void addQuantity_TauCeti(Integer quantity, Boolean newlyCreated) {
+        if (quantity > 0) {
+            if (newlyCreated) {
+                create(quantity);
+            }
+
             this.quantityTauCeti += quantity;
+            System.out.println(quantity + "pcs of " + this.param.getName() + " added to stock on Tau Ceti.");
         }
-    }
-
-    public Boolean addQuantity_TauCeti(Integer quantity, Boolean newlyCreated) {
-        if(newlyCreated) {
-            create(quantity);
-            addQuantity_TauCeti(quantity);
-            return true;
-        }
-
-        return false;
     }
 
     public void substractQuantity_TauCeti(Integer quantity) {
@@ -249,20 +250,15 @@ public abstract class Resource {
         return this.quantityBetaHydri;
     }
 
-    public void addQuantity_BetaHydri(Integer quantity) {
-        if(quantity > 0) {
+    public void addQuantity_BetaHydri(Integer quantity, Boolean newlyCreated) {
+        if (quantity > 0) {
+            if (newlyCreated) {
+                create(quantity);
+            }
+
             this.quantityBetaHydri += quantity;
+            System.out.println(quantity + "pcs of " + this.param.getName() + " added to stock on Beta Hydri.");
         }
-    }
-
-    public Boolean addQuantity_BetaHydri(Integer quantity, Boolean newlyCreated) {
-        if(newlyCreated) {
-            create(quantity);
-            addQuantity_BetaHydri(quantity);
-            return true;
-        }
-
-        return false;
     }
 
     public void substractQuantity_BetaHydri(Integer quantity) {
@@ -301,14 +297,15 @@ public abstract class Resource {
         }
     }
 
-    public Boolean addQuantity_SigmaDraconis(Integer quantity, Boolean newlyCreated) {
-        if(newlyCreated) {
-            create(quantity);
-            addQuantity_SigmaDraconis(quantity);
-            return true;
-        }
+    public void addQuantity_SigmaDraconis(Integer quantity, Boolean newlyCreated) {
+        if (quantity > 0) {
+            if (newlyCreated) {
+                create(quantity);
+            }
 
-        return false;
+            this.quantitySigmaDraconis += quantity;
+            System.out.println(quantity + "pcs of " + this.param.getName() + " added to stock on Sigma Draconis.");
+        }
     }
 
     public void substractQuantity_SigmaDraconis(Integer quantity) {
@@ -341,20 +338,15 @@ public abstract class Resource {
         return this.quantityMuHerculis;
     }
 
-    public void addQuantity_MuHerculis(Integer quantity) {
-        if(quantity > 0) {
+    public void addQuantity_MuHerculis(Integer quantity, Boolean newlyCreated) {
+        if (quantity > 0) {
+            if (newlyCreated) {
+                create(quantity);
+            }
+
             this.quantityMuHerculis += quantity;
+            System.out.println(quantity + "pcs of " + this.param.getName() + " added to stock on Mu Herculis.");
         }
-    }
-
-    public Boolean addQuantity_MuHerculis(Integer quantity, Boolean newlyCreated) {
-        if(newlyCreated) {
-            create(quantity);
-            addQuantity_MuHerculis(quantity);
-            return true;
-        }
-
-        return false;
     }
 
     public void substractQuantity_MuHerculis(Integer quantity) {
@@ -387,20 +379,15 @@ public abstract class Resource {
         return this.quantityLambdaArietis;
     }
 
-    public void addQuantity_LambdaArietis(Integer quantity) {
-        if(quantity > 0) {
+    public void addQuantity_LambdaArietis(Integer quantity, Boolean newlyCreated) {
+        if (quantity > 0) {
+            if (newlyCreated) {
+                create(quantity);
+            }
+
             this.quantityLambdaArietis += quantity;
+            System.out.println(quantity + "pcs of " + this.param.getName() + " added to stock on Lambda Arietis.");
         }
-    }
-
-    public Boolean addQuantity_LambdaArietis(Integer quantity, Boolean newlyCreated) {
-        if(newlyCreated) {
-            create(quantity);
-            addQuantity_LambdaArietis(quantity);
-            return true;
-        }
-
-        return false;
     }
 
     public void substractQuantity_LambdaArietis(Integer quantity) {
@@ -433,20 +420,15 @@ public abstract class Resource {
         return this.quantityThetaTauri;
     }
 
-    public void addQuantity_ThetaTauri(Integer quantity) {
-        if(quantity > 0) {
+    public void addQuantity_ThetaTauri(Integer quantity, Boolean newlyCreated) {
+        if (quantity > 0) {
+            if (newlyCreated) {
+                create(quantity);
+            }
+
             this.quantityThetaTauri += quantity;
+            System.out.println(quantity + "pcs of " + this.param.getName() + " added to stock on Theta Tauri.");
         }
-    }
-
-    public Boolean addQuantity_ThetaTauri(Integer quantity, Boolean newlyCreated) {
-        if(newlyCreated) {
-            create(quantity);
-            addQuantity_ThetaTauri(quantity);
-            return true;
-        }
-
-        return false;
     }
 
     public void substractQuantity_ThetaTauri(Integer quantity) {
@@ -479,20 +461,15 @@ public abstract class Resource {
         return this.quantityAlphaVolantis;
     }
 
-    public void addQuantity_AlphaVolantis(Integer quantity) {
-        if(quantity > 0) {
+    public void addQuantity_AlphaVolantis(Integer quantity, Boolean newlyCreated) {
+        if (quantity > 0) {
+            if (newlyCreated) {
+                create(quantity);
+            }
+
             this.quantityAlphaVolantis += quantity;
+            System.out.println(quantity + "pcs of " + this.param.getName() + " added to stock on Alpha Volantis.");
         }
-    }
-
-    public Boolean addQuantity_AlphaVolantis(Integer quantity, Boolean newlyCreated) {
-        if(newlyCreated) {
-            create(quantity);
-            addQuantity_AlphaVolantis(quantity);
-            return true;
-        }
-
-        return false;
     }
 
     public void substractQuantity_AlphaVolantis(Integer quantity) {
