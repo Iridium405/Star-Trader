@@ -7,11 +7,10 @@ import pl.startrader.model.resource.ResourceParam;
 public class Platinum extends Resource implements Extraction {
 
     private static Platinum instance;
-    private ResourceParam param;
 
 
     private Platinum() {
-        this.param = ResourceParam.PLATINUM;
+        super(ResourceParam.PLATINUM);
     }
 
 
@@ -23,8 +22,4 @@ public class Platinum extends Resource implements Extraction {
         return instance;
     }
 
-    @Override
-    public ResourceParam getParam() {
-        return param;
-    }
 }

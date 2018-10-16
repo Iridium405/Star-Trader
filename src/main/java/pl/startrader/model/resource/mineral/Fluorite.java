@@ -7,11 +7,10 @@ import pl.startrader.model.resource.ResourceParam;
 public class Fluorite extends Resource implements Extraction {
 
     private static Fluorite instance;
-    private ResourceParam param;
 
 
     private Fluorite() {
-        this.param = ResourceParam.FLUORITE;
+        super(ResourceParam.FLUORITE);
     }
 
 
@@ -23,8 +22,4 @@ public class Fluorite extends Resource implements Extraction {
         return instance;
     }
 
-    @Override
-    public ResourceParam getParam() {
-        return param;
-    }
 }

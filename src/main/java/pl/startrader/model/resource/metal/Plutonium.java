@@ -7,11 +7,10 @@ import pl.startrader.model.resource.ResourceParam;
 public class Plutonium extends Resource implements Extraction {
 
     private static Plutonium instance;
-    private ResourceParam param;
 
 
     private Plutonium() {
-        this.param = ResourceParam.PLUTONIUM;
+        super(ResourceParam.PLUTONIUM);
     }
 
 
@@ -23,8 +22,4 @@ public class Plutonium extends Resource implements Extraction {
         return instance;
     }
 
-    @Override
-    public ResourceParam getParam() {
-        return param;
-    }
 }

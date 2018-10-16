@@ -7,11 +7,10 @@ import pl.startrader.model.resource.ResourceParam;
 public class Prototype extends Resource implements Production {
 
     private static Prototype instance;
-    private ResourceParam param;
 
 
     private Prototype() {
-        this.param = ResourceParam.PROTOTYPE;
+        super(ResourceParam.PROTOTYPE);
     }
 
 
@@ -23,8 +22,4 @@ public class Prototype extends Resource implements Production {
         return instance;
     }
 
-    @Override
-    public ResourceParam getParam() {
-        return param;
-    }
 }

@@ -7,11 +7,10 @@ import pl.startrader.model.resource.ResourceParam;
 public class Iridium extends Resource implements Extraction {
 
     private static Iridium instance;
-    private ResourceParam param;
 
 
     private Iridium() {
-        this.param = ResourceParam.IRIDIUM;
+        super(ResourceParam.IRIDIUM);
     }
 
 
@@ -23,8 +22,4 @@ public class Iridium extends Resource implements Extraction {
         return instance;
     }
 
-    @Override
-    public ResourceParam getParam() {
-        return param;
-    }
 }

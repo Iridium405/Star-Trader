@@ -7,11 +7,10 @@ import pl.startrader.model.resource.ResourceParam;
 public class Antimatter extends Resource implements Extraction {
 
     private static Antimatter instance;
-    private ResourceParam param;
 
 
     private Antimatter() {
-        this.param = ResourceParam.ANTIMATTER;
+        super(ResourceParam.ANTIMATTER);
     }
 
 
@@ -23,8 +22,4 @@ public class Antimatter extends Resource implements Extraction {
         return instance;
     }
 
-    @Override
-    public ResourceParam getParam() {
-        return param;
-    }
 }

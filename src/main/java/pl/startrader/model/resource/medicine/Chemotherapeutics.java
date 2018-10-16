@@ -7,11 +7,10 @@ import pl.startrader.model.resource.ResourceParam;
 public class Chemotherapeutics extends Resource implements Production {
 
     private static Chemotherapeutics instance;
-    private ResourceParam param;
 
 
     private Chemotherapeutics() {
-        this.param = ResourceParam.CHEMOTHERAPEUTICS;
+        super(ResourceParam.CHEMOTHERAPEUTICS);
     }
 
 
@@ -23,8 +22,4 @@ public class Chemotherapeutics extends Resource implements Production {
         return instance;
     }
 
-    @Override
-    public ResourceParam getParam() {
-        return param;
-    }
 }

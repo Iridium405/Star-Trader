@@ -7,11 +7,10 @@ import pl.startrader.model.resource.ResourceParam;
 public class Biopolymer extends Resource implements Production {
 
     private static Biopolymer instance;
-    private ResourceParam param;
 
 
     private Biopolymer() {
-        this.param = ResourceParam.BIOPOLYMER;
+        super(ResourceParam.BIOPOLYMER);
     }
 
 
@@ -23,8 +22,4 @@ public class Biopolymer extends Resource implements Production {
         return instance;
     }
 
-    @Override
-    public ResourceParam getParam() {
-        return param;
-    }
 }

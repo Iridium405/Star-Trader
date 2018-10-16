@@ -7,11 +7,10 @@ import pl.startrader.model.resource.ResourceParam;
 public class Preservatives extends Resource implements Production {
 
     private static Preservatives instance;
-    private ResourceParam param;
 
 
     private Preservatives() {
-        this.param = ResourceParam.PRESERVATIVES;
+        super(ResourceParam.PRESERVATIVES);
     }
 
 
@@ -23,8 +22,4 @@ public class Preservatives extends Resource implements Production {
         return instance;
     }
 
-    @Override
-    public ResourceParam getParam() {
-        return param;
-    }
 }

@@ -7,11 +7,10 @@ import pl.startrader.model.resource.ResourceParam;
 public class Endangered extends Resource implements Breed {
 
     private static Endangered instance;
-    private ResourceParam param;
 
 
     private Endangered() {
-        this.param = ResourceParam.ENDANGERED;
+        super(ResourceParam.ENDANGERED);
     }
 
 
@@ -23,8 +22,4 @@ public class Endangered extends Resource implements Breed {
         return instance;
     }
 
-    @Override
-    public ResourceParam getParam() {
-        return param;
-    }
 }

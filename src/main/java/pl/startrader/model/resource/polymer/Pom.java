@@ -7,11 +7,10 @@ import pl.startrader.model.resource.ResourceParam;
 public class Pom extends Resource implements Production {
 
     private static Pom instance;
-    private ResourceParam param;
 
 
     private Pom() {
-        this.param = ResourceParam.POM;
+        super(ResourceParam.POM);
     }
 
 
@@ -23,8 +22,4 @@ public class Pom extends Resource implements Production {
         return instance;
     }
 
-    @Override
-    public ResourceParam getParam() {
-        return param;
-    }
 }

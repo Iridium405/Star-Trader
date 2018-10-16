@@ -7,11 +7,10 @@ import pl.startrader.model.resource.ResourceParam;
 public class Ptfe extends Resource implements Production {
 
     private static Ptfe instance;
-    private ResourceParam param;
 
 
     private Ptfe() {
-        this.param = ResourceParam.PTFE;
+        super(ResourceParam.PTFE);
     }
 
 
@@ -23,8 +22,4 @@ public class Ptfe extends Resource implements Production {
         return instance;
     }
 
-    @Override
-    public ResourceParam getParam() {
-        return param;
-    }
 }

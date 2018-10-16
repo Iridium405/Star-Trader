@@ -7,11 +7,10 @@ import pl.startrader.model.resource.ResourceParam;
 public class GeneticDrugs extends Resource implements Production {
 
     private static GeneticDrugs instance;
-    private ResourceParam param;
 
 
     private GeneticDrugs() {
-        this.param = ResourceParam.GENETIC_DRUGS;
+        super(ResourceParam.GENETIC_DRUGS);
     }
 
 
@@ -23,8 +22,4 @@ public class GeneticDrugs extends Resource implements Production {
         return instance;
     }
 
-    @Override
-    public ResourceParam getParam() {
-        return param;
-    }
 }

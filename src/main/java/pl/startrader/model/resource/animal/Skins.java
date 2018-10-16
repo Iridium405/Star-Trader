@@ -7,11 +7,10 @@ import pl.startrader.model.resource.ResourceParam;
 public class Skins extends Resource implements Breed {
 
     private static Skins instance;
-    private ResourceParam param;
 
 
     private Skins() {
-        this.param = ResourceParam.SKINS;
+        super(ResourceParam.SKINS);
     }
 
 
@@ -23,8 +22,4 @@ public class Skins extends Resource implements Breed {
         return instance;
     }
 
-    @Override
-    public ResourceParam getParam() {
-        return param;
-    }
 }

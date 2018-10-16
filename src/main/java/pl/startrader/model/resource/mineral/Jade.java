@@ -7,11 +7,10 @@ import pl.startrader.model.resource.ResourceParam;
 public class Jade extends Resource implements Extraction {
 
     private static Jade instance;
-    private ResourceParam param;
 
 
     private Jade() {
-        this.param = ResourceParam.JADE;
+        super(ResourceParam.JADE);
     }
 
 
@@ -23,8 +22,4 @@ public class Jade extends Resource implements Extraction {
         return instance;
     }
 
-    @Override
-    public ResourceParam getParam() {
-        return param;
-    }
 }

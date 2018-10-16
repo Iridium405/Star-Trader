@@ -7,11 +7,10 @@ import pl.startrader.model.resource.ResourceParam;
 public class Spices extends Resource implements Production {
 
     private static Spices instance;
-    private ResourceParam param;
 
 
     private Spices() {
-        this.param = ResourceParam.SPICES;
+        super(ResourceParam.SPICES);
     }
 
 
@@ -23,8 +22,4 @@ public class Spices extends Resource implements Production {
         return instance;
     }
 
-    @Override
-    public ResourceParam getParam() {
-        return param;
-    }
 }

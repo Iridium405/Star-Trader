@@ -7,11 +7,10 @@ import pl.startrader.model.resource.ResourceParam;
 public class Rhodonite extends Resource implements Extraction {
 
     private static Rhodonite instance;
-    private ResourceParam param;
 
 
     private Rhodonite() {
-        this.param = ResourceParam.RHODONITE;
+        super(ResourceParam.RHODONITE);
     }
 
 
@@ -23,8 +22,4 @@ public class Rhodonite extends Resource implements Extraction {
         return instance;
     }
 
-    @Override
-    public ResourceParam getParam() {
-        return param;
-    }
 }

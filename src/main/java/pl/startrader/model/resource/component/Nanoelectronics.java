@@ -7,11 +7,10 @@ import pl.startrader.model.resource.ResourceParam;
 public class Nanoelectronics extends Resource implements Production {
 
     private static Nanoelectronics instance;
-    private ResourceParam param;
 
 
     private Nanoelectronics() {
-        this.param = ResourceParam.NANOELECTRONICS;
+        super(ResourceParam.NANOELECTRONICS);
     }
 
 
@@ -23,8 +22,4 @@ public class Nanoelectronics extends Resource implements Production {
         return instance;
     }
 
-    @Override
-    public ResourceParam getParam() {
-        return param;
-    }
 }

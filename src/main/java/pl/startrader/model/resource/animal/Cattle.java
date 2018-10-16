@@ -7,11 +7,11 @@ import pl.startrader.model.resource.ResourceParam;
 public class Cattle extends Resource implements Breed {
 
     private static Cattle instance;
-    private ResourceParam param;
 
 
-    private Cattle() {
-        this.param = ResourceParam.CATTLE;
+    public Cattle() {
+        super(ResourceParam.CATTLE);
+
     }
 
 
@@ -23,8 +23,4 @@ public class Cattle extends Resource implements Breed {
         return instance;
     }
 
-    @Override
-    public ResourceParam getParam() {
-        return param;
-    }
 }

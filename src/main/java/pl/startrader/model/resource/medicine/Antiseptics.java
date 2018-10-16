@@ -7,11 +7,10 @@ import pl.startrader.model.resource.ResourceParam;
 public class Antiseptics extends Resource implements Production {
 
     private static Antiseptics instance;
-    private ResourceParam param;
 
 
     private Antiseptics() {
-        this.param = ResourceParam.ANTISEPTICS;
+        super(ResourceParam.ANTISEPTICS);
     }
 
 
@@ -23,8 +22,4 @@ public class Antiseptics extends Resource implements Production {
         return instance;
     }
 
-    @Override
-    public ResourceParam getParam() {
-        return param;
-    }
 }

@@ -7,11 +7,10 @@ import pl.startrader.model.resource.ResourceParam;
 public class Onyx extends Resource implements Extraction {
 
     private static Onyx instance;
-    private ResourceParam param;
 
 
     private Onyx() {
-        this.param = ResourceParam.ONYX;
+        super(ResourceParam.ONYX);
     }
 
 
@@ -23,9 +22,5 @@ public class Onyx extends Resource implements Extraction {
         return instance;
     }
 
-    @Override
-    public ResourceParam getParam() {
-        return param;
-    }
 
 }

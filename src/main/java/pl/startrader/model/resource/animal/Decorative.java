@@ -7,11 +7,10 @@ import pl.startrader.model.resource.ResourceParam;
 public class Decorative extends Resource implements Breed {
 
     private static Decorative instance;
-    private ResourceParam param;
 
 
     private Decorative() {
-        this.param = ResourceParam.DECORATIVE;
+        super(ResourceParam.DECORATIVE);
     }
 
 
@@ -23,8 +22,4 @@ public class Decorative extends Resource implements Breed {
         return instance;
     }
 
-    @Override
-    public ResourceParam getParam() {
-        return param;
-    }
 }

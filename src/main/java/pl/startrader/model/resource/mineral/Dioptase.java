@@ -7,11 +7,10 @@ import pl.startrader.model.resource.ResourceParam;
 public class Dioptase extends Resource implements Extraction {
 
     private static Dioptase instance;
-    private ResourceParam param;
 
 
     private Dioptase() {
-        this.param = ResourceParam.DIOPTASE;
+        super(ResourceParam.DIOPTASE);
     }
 
 
@@ -23,8 +22,4 @@ public class Dioptase extends Resource implements Extraction {
         return instance;
     }
 
-    @Override
-    public ResourceParam getParam() {
-        return param;
-    }
 }

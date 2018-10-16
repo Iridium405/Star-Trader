@@ -7,11 +7,10 @@ import pl.startrader.model.resource.ResourceParam;
 public class NaturalFood extends Resource implements Production {
 
     private static NaturalFood instance;
-    private ResourceParam param;
 
 
     private NaturalFood() {
-        this.param = ResourceParam.NATURAL;
+        super(ResourceParam.NATURAL);
     }
 
 
@@ -23,8 +22,4 @@ public class NaturalFood extends Resource implements Production {
         return instance;
     }
 
-    @Override
-    public ResourceParam getParam() {
-        return param;
-    }
 }

@@ -38,19 +38,19 @@ public class Main {
         Player.getInstance().addMultipleDiceRolls(5, 6);
         System.out.println(Player.getInstance().getDiceRolls());
 
-        Iridium.getInstance().addQuantity_ThetaTauri(10);
-        Iridium.getInstance().addQuantity_BetaHydri(5);
+        Iridium.getInstance().addQuantity_ThetaTauri(10, true);
+        Iridium.getInstance().addQuantity_BetaHydri(5, true);
         System.out.println("Global " + Iridium.getInstance().getParam().getName() + " storage (15): " + Iridium.getInstance().getGlobalQuantity());
 
-        Platinum.getInstance().addQuantity_AlphaVolantis(20);
-        Platinum.getInstance().addQuantity_BetaHydri(10);
+        Platinum.getInstance().addQuantity_AlphaVolantis(20, true);
+        Platinum.getInstance().addQuantity_BetaHydri(10, true);
         System.out.println("Global " + Platinum.getInstance().getParam().getName() + " storage (30): " + Platinum.getInstance().getGlobalQuantity());
 
         System.out.println(Jade.getInstance().getParam().getType());
         System.out.println(Pmma.getInstance().getParam().getType());
 
-        Prototype.getInstance().addQuantity_AlphaVolantis(5);
-        Prototype.getInstance().addQuantity_BetaHydri(7);
+        Prototype.getInstance().addQuantity_AlphaVolantis(5, true);
+        Prototype.getInstance().addQuantity_BetaHydri(7, true);
         System.out.println(Prototype.getInstance().getParam().getName() + " (Global): " +Prototype.getInstance().getGlobalQuantity());
 
 
@@ -82,6 +82,11 @@ public class Main {
         System.out.println(crewMember_1.getName() + " MECHANICS: " + crewMember_1.getMechanics());
         System.out.println(crewMember_1.getName() + " HIT POINTS: " + crewMember_1.getHitPoints());
         System.out.println(crewMember_1.getName() + " SKILL POINTS: " + crewMember_1.getSkillPoints());
+
+        System.out.println();
+        crewMember_1.removeHitPoint();
+        System.out.println(crewMember_1.getName() + " HIT POINTS: " + crewMember_1.getHitPoints());
+        crewMember_1.removeHitPoint();
 
     }
 

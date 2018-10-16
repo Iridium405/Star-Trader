@@ -7,11 +7,10 @@ import pl.startrader.model.resource.ResourceParam;
 public class Accumulator extends Resource implements Production {
 
     private static Accumulator instance;
-    private ResourceParam param;
 
 
     private Accumulator() {
-        this.param = ResourceParam.ACCUMULATOR;
+        super(ResourceParam.ACCUMULATOR);
     }
 
 
@@ -23,8 +22,4 @@ public class Accumulator extends Resource implements Production {
         return instance;
     }
 
-    @Override
-    public ResourceParam getParam() {
-        return param;
-    }
 }

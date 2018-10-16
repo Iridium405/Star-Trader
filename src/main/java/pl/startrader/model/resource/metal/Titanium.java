@@ -7,11 +7,10 @@ import pl.startrader.model.resource.ResourceParam;
 public class Titanium extends Resource implements Extraction {
 
     private static Titanium instance;
-    private ResourceParam param;
 
 
     private Titanium() {
-        this.param = ResourceParam.TITANIUM;
+        super(ResourceParam.TITANIUM);
     }
 
 
@@ -23,8 +22,4 @@ public class Titanium extends Resource implements Extraction {
         return instance;
     }
 
-    @Override
-    public ResourceParam getParam() {
-        return param;
-    }
 }

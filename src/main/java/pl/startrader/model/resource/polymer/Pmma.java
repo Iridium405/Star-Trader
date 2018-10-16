@@ -7,11 +7,10 @@ import pl.startrader.model.resource.ResourceParam;
 public class Pmma extends Resource implements Production {
 
     private static Pmma instance;
-    private ResourceParam param;
 
 
     public Pmma() {
-        this.param = ResourceParam.PMMA;
+        super(ResourceParam.PMMA);
     }
 
 
@@ -23,8 +22,4 @@ public class Pmma extends Resource implements Production {
         return instance;
     }
 
-    @Override
-    public ResourceParam getParam() {
-        return param;
-    }
 }

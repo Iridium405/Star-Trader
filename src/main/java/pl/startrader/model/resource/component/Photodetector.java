@@ -7,11 +7,10 @@ import pl.startrader.model.resource.ResourceParam;
 public class Photodetector extends Resource implements Production {
 
     private static Photodetector instance;
-    private ResourceParam param;
 
 
     private Photodetector() {
-        this.param = ResourceParam.PHOTODETECTOR;
+        super(ResourceParam.PHOTODETECTOR);
     }
 
 
@@ -23,8 +22,4 @@ public class Photodetector extends Resource implements Production {
         return instance;
     }
 
-    @Override
-    public ResourceParam getParam() {
-        return param;
-    }
 }

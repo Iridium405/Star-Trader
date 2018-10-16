@@ -7,11 +7,10 @@ import pl.startrader.model.resource.ResourceParam;
 public class Circuit extends Resource implements Production {
 
     private static Circuit instance;
-    private ResourceParam param;
 
 
     private Circuit() {
-        this.param = ResourceParam.CIRCUIT;
+        super(ResourceParam.CIRCUIT);
     }
 
 
@@ -23,8 +22,4 @@ public class Circuit extends Resource implements Production {
         return instance;
     }
 
-    @Override
-    public ResourceParam getParam() {
-        return param;
-    }
 }
