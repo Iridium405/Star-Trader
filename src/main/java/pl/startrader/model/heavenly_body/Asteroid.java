@@ -9,13 +9,13 @@ public class Asteroid extends HeavenlyBody{
     private String type;
     private String name;
     private Integer size;
-    private Integer locationX;
-    private Integer locationY;
-    private Integer locationZ;
+    private Double locationX;
+    private Double locationY;
+    private Double locationZ;
     private List<Resource> mainAsteroidResource;
 
 
-    public Asteroid(String name, Integer size, Integer locationX, Integer locationY, Integer locationZ) {
+    public Asteroid(String name, Integer size, Double locationX, Double locationY, Double locationZ) {
         this.type = "Asteroid";
         this.name = name;
         this.size = size;
@@ -41,17 +41,17 @@ public class Asteroid extends HeavenlyBody{
     }
 
     @Override
-    public Integer getLocationX() {
+    public Double getLocationX() {
         return locationX;
     }
 
     @Override
-    public Integer getLocationY() {
+    public Double getLocationY() {
         return locationY;
     }
 
     @Override
-    public Integer getLocationZ() {
+    public Double getLocationZ() {
         return locationZ;
     }
 
