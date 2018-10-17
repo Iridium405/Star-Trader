@@ -518,10 +518,10 @@ public class Starship {
         return travelDistance(destination) * this.hullType.getHullSize().getTravelCostFactor();
     }
 
-    
+
 
     public void travel(HeavenlyBody destination) {
 
     }
-
+    
 }
