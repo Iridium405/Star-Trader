@@ -3,6 +3,7 @@ package pl.startrader;
 
 import pl.startrader.model.character.CharacterGenerator;
 import pl.startrader.model.character.Crew;
+import pl.startrader.model.heavenly_body.Asteroid;
 import pl.startrader.model.heavenly_body.HeavenlyBody;
 import pl.startrader.model.heavenly_body.HeavenlyBodyFactory;
 import pl.startrader.model.resource.component.Prototype;
@@ -11,12 +12,13 @@ import pl.startrader.model.resource.metal.Platinum;
 import pl.startrader.model.resource.mineral.Jade;
 import pl.startrader.model.resource.polymer.Pmma;
 import pl.startrader.model.starship.HullType;
+import pl.startrader.model.starship.Starship;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        HeavenlyBody earth = HeavenlyBodyFactory.getHeavenlyBody("Planet", "Earth", 10, 5, 6, 0);
+        HeavenlyBody earth = HeavenlyBodyFactory.getHeavenlyBody("Planet", "Earth", 10, 5.0, 6.0, 0.0);
         System.out.println(earth.toString());
 
         System.out.println(Dice.getInstance().throwModifiedDice(6,-2, false));
@@ -97,6 +99,28 @@ public class Main {
         crewMember_2.addExperience(1);
         System.out.println(crewMember_2.getName() + " EXP: " + crewMember_2.getExperience());
         System.out.println(crewMember_2.getName() + " LVL: " + crewMember_2.getLevel());
+        System.out.println(crewMember_2.getName() + " CREW CLASS: " + crewMember_2.getCrewClass());
+        crewMember_2.upgradeCrewClass();
+        System.out.println(crewMember_2.getName() + " CREW CLASS: " + crewMember_2.getCrewClass());
+        crewMember_2.addExperience(20);
+        System.out.println(crewMember_2.getName() + " SKILL POINTS: " + crewMember_2.getSkillPoints());
+
+        System.out.println();
+        Asteroid asteroid01 = new Asteroid("AST-X001",1,3.0,-2.0,-5.0);
+        Starship ship1 = new Starship("Harmony-01", HullType.HARMONY);
+
+        ship1.setCurrentlyStationed(earth);
+        System.out.println(ship1.getName() + " currently stations on " + ship1.getCurrentlyStationed().getName());
+        ship1.travelDistance(asteroid01);
+        System.out.println(ship1.getName() + " travel distance to " + asteroid01.getName() + " equals " + ship1.travelDistance(asteroid01));
+
+        System.out.println();
+        ship1.setCurrentlyStationed(asteroid01);
+        System.out.println(ship1.getName() + " currently stations on " + ship1.getCurrentlyStationed().getName());
+        ship1.travelDistance(earth);
+        System.out.println(ship1.getName() + " travel distance to " + earth.getName() + " equals " + ship1.travelDistance(earth));
+
+
 
     }
 

@@ -3,10 +3,11 @@ package pl.startrader.model.starship;
 import pl.startrader.model.heavenly_body.HeavenlyBody;
 import pl.startrader.model.resource.Resource;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Starship {
+public class Starship {
 
     private String name;
     private HullType hullType;
@@ -47,8 +48,8 @@ public abstract class Starship {
 
 
 
-    public Starship(HullType hullType) {
-        this.name = "";
+    public Starship(String name, HullType hullType) {
+        this.name = name;
         this.hullType = hullType;
         this.crewClass = hullType.getMinimumCrewClass();
         this.crewMembers = hullType.getMinCrewMembers();
@@ -492,8 +493,29 @@ public abstract class Starship {
 
 
 
-    public void transport(HeavenlyBody destination){
+    public void travel(HeavenlyBody destination) {
 
     }
+
+    public Double travelDistance(HeavenlyBody destination) {
+        Double station_X = this.currentlyStationed.getLocationX();
+        Double station_Y = this.currentlyStationed.getLocationY();
+        Double station_Z = this.currentlyStationed.getLocationZ();
+        Double destination_X = destination.getLocationX();
+        Double destination_Y = destination.getLocationY();
+        Double destination_Z = destination.getLocationZ();
+
+        Double courseLength = Math.sqrt(
+               (Math.pow(destination_X - station_X, 2)) +
+               (Math.pow(destination_Y - station_Y, 2)) +
+               (Math.pow(destination_Z - station_Z, 2))
+        );
+
+        courseLength = Math.round(courseLength*100)/100.0d;
+
+        return courseLength;
+    }
+
+    
 
 }
