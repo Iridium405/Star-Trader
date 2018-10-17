@@ -10,9 +10,9 @@ public class Planet extends HeavenlyBody {
     private String type;
     private String name;
     private Integer size;
-    private Integer locationX;
-    private Integer locationY;
-    private Integer locationZ;
+    private Double locationX;
+    private Double locationY;
+    private Double locationZ;
 
     private Character administrator;
 
@@ -30,7 +30,7 @@ public class Planet extends HeavenlyBody {
 
 
 
-    public Planet(String name, Integer size, Integer locationX, Integer locationY, Integer locationZ) {
+    public Planet(String name, Integer size, Double locationX, Double locationY, Double locationZ) {
         this.type = "Planet";
         this.name = name;
         this.size = size;
@@ -64,17 +64,17 @@ public class Planet extends HeavenlyBody {
     }
 
     @Override
-    public Integer getLocationX() {
+    public Double getLocationX() {
         return locationX;
     }
 
     @Override
-    public Integer getLocationY() {
+    public Double getLocationY() {
         return locationY;
     }
 
     @Override
-    public Integer getLocationZ() {
+    public Double getLocationZ() {
         return locationZ;
     }
 
