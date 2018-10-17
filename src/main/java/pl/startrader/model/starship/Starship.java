@@ -493,10 +493,6 @@ public class Starship {
 
 
 
-    public void travel(HeavenlyBody destination) {
-
-    }
-
     public Double travelDistance(HeavenlyBody destination) {
         Double station_X = this.currentlyStationed.getLocationX();
         Double station_Y = this.currentlyStationed.getLocationY();
@@ -516,6 +512,16 @@ public class Starship {
         return courseLength;
     }
 
+
+
+    public Double travelCost(HeavenlyBody destination) {
+        return travelDistance(destination) * this.hullType.getHullSize().getTravelCostFactor();
+    }
+
     
+
+    public void travel(HeavenlyBody destination) {
+
+    }
 
 }

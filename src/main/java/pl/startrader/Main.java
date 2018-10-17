@@ -113,12 +113,14 @@ public class Main {
         System.out.println(ship1.getName() + " currently stations on " + ship1.getCurrentlyStationed().getName());
         ship1.travelDistance(asteroid01);
         System.out.println(ship1.getName() + " travel distance to " + asteroid01.getName() + " equals " + ship1.travelDistance(asteroid01));
+        System.out.println("Travel cost: " + ship1.travelCost(asteroid01));
 
         System.out.println();
         ship1.setCurrentlyStationed(asteroid01);
         System.out.println(ship1.getName() + " currently stations on " + ship1.getCurrentlyStationed().getName());
         ship1.travelDistance(earth);
         System.out.println(ship1.getName() + " travel distance to " + earth.getName() + " equals " + ship1.travelDistance(earth));
+        System.out.println("Travel cost: " + ship1.travelCost(earth));
 
 
 
