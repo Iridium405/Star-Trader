@@ -51,9 +51,9 @@ public class Player {
         this.reputationThetaTauri = 50;
         this.reputationAlphaVolantis = 50;
 
-        this.shipList = new ArrayList<Starship>();
-        this.inbox = new ArrayList<Message>();
-        this.diceRolls = new ArrayList<Integer>();
+        this.shipList = new ArrayList<>();
+        this.inbox = new ArrayList<>();
+        this.diceRolls = new ArrayList<>();
     }
 
     public static synchronized Player getInstance() {

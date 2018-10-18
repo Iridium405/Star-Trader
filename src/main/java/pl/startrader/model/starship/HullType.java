@@ -5,13 +5,15 @@ import static pl.startrader.model.starship.HullSize.*;
 
 public enum HullType {
 
-    PICCOLO     ("Piccolo",     E, 1, 1,    XS, 5,  15),
-    CLARINET    ("Clarinet",    E, 1, 1,    S,  10, 20),
-    VIOLIN      ("Violin",      D, 1, 2,    S,  14, 20),
-    HARP        ("Harp",        D, 1, 3,    S,  18, 20),
-    STINGRAY    ("Stingray",    C, 2, 5,    M,  20, 35),
-    HARMONY     ("Harmony",     C, 2, 4,    M,  24, 25),
-    CLAW        ("Claw",        B, 3, 7,    L,  32, 40);
+    PICCOLO     ("Piccolo",     E, 1, 1,    XS,     5,      15),
+    CLARINET    ("Clarinet",    E, 1, 1,    S,      10,     20),
+    VIOLIN      ("Violin",      E, 1, 2,    S,      14,     20),
+    HARP        ("Harp",        E, 1, 3,    S,      18,     20),
+    STINGRAY    ("Stingray",    E, 2, 5,    M,      20,     35),
+    HARMONY     ("Harmony",     E, 2, 4,    M,      24,     25),
+    CLAW        ("Claw",        D, 3, 7,    L,      32,     40),
+    FANG        ("Fang",        D, 5, 8,    XL,     50,     60),
+    GARGOYLE    ("Gargoyle",    C, 7, 12,   XXL,    80,    100);
 
 
 

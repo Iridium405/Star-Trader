@@ -20,6 +20,8 @@ public class Crew extends Character {
     private Integer experience;
     private Integer level;
     private Integer skillPoints;
+    private Double salary;
+    private Double travelBonus;
 
 
 
@@ -38,6 +40,8 @@ public class Crew extends Character {
         this.experience = 0;
         this.level = 1;
         this.skillPoints = 1;
+        this.salary = crewClass.getMinSalary();
+        this.travelBonus = crewClass.getMinTravelBonus();
     }
 
 
@@ -61,8 +65,12 @@ public class Crew extends Character {
             }
 
             System.out.println("Crew class upgraded to " + this.crewClass);
-        }else {
+        } else {
             System.out.println("Crew class cannot be upgraded more.");
+        }
+
+        if (this.travelBonus < this.crewClass.getMinTravelBonus()) {
+            this.travelBonus = this.crewClass.getMinTravelBonus();
         }
     }
 
@@ -231,6 +239,14 @@ public class Crew extends Character {
 
     public Integer getSkillPoints() {
         return skillPoints;
+    }
+
+    public Double getSalary() {
+        return salary;
+    }
+
+    public Double getTravelBonus() {
+        return travelBonus;
     }
 
 }

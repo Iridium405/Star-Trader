@@ -1,5 +1,7 @@
 package pl.startrader.model.heavenly_body;
 
+import pl.startrader.model.character.Administrator;
+import pl.startrader.model.character.CharacterGenerator;
 import pl.startrader.model.resource.Resource;
 
 import java.util.ArrayList;
@@ -14,7 +16,7 @@ public class Planet extends HeavenlyBody {
     private Double locationY;
     private Double locationZ;
 
-    private Character administrator;
+    private Administrator administrator;
 
     private Integer portClass;
     private Integer security;
@@ -38,7 +40,7 @@ public class Planet extends HeavenlyBody {
         this.locationY = locationY;
         this.locationZ = locationZ;
 
-        this.administrator = null;
+        this.administrator = CharacterGenerator.generateAdministrator();
 
         this.portClass = 0;
         this.security = 0;
@@ -80,21 +82,44 @@ public class Planet extends HeavenlyBody {
 
 
 
-    public Character getAdministrator() {
+    public Administrator getAdministrator() {
         return administrator;
     }
+
+    public void changeAdministrator(Administrator administrator) {
+        this.administrator = administrator;
+    }
+
+
 
     public Integer getPortClass() {
         return portClass;
     }
 
+    public void setPortClass(Integer portClass) {
+        this.portClass = portClass;
+    }
+
+
+
     public Integer getSecurity() {
         return security;
     }
 
+    public void setSecurity(Integer security) {
+        this.security = security;
+    }
+
+
+
     public Integer getMilitaryPower() {
         return militaryPower;
     }
+
+    public void setMilitaryPower(Integer militaryPower) {
+        this.militaryPower = militaryPower;
+    }
+
 
 
     @Override
@@ -122,4 +147,8 @@ public class Planet extends HeavenlyBody {
     public List<Resource> getTradeForbidden() {
         return tradeForbidden;
     }
+
+
+    //TODO
+    public void createStarship() {}
 }

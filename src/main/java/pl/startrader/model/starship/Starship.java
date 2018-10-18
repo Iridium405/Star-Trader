@@ -1,9 +1,9 @@
 package pl.startrader.model.starship;
 
+import pl.startrader.model.character.Crew;
 import pl.startrader.model.heavenly_body.HeavenlyBody;
 import pl.startrader.model.resource.Resource;
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,6 +14,7 @@ public class Starship {
 
     private CrewClass crewClass;
     private Integer crewMembers;
+    private List<Crew> crewList;
 
     private Integer flightModification;
 
@@ -44,6 +45,8 @@ public class Starship {
     private Integer passengerModules;
     private Integer passengerModulesAvailable;
 
+    private Double travelCostFactor;
+
     private HeavenlyBody currentlyStationed;
 
 
@@ -53,6 +56,7 @@ public class Starship {
         this.hullType = hullType;
         this.crewClass = hullType.getMinimumCrewClass();
         this.crewMembers = hullType.getMinCrewMembers();
+        this.crewList = new ArrayList<>();
         this.flightModification = 0;
         this.maxModulesCapacity = hullType.getModuleCapacity();
         this.modulesAvailable = hullType.getModuleCapacity();
@@ -67,6 +71,7 @@ public class Starship {
         this.freightModulesAvailable = freightModules;
         this.passengerModules = 0;
         this.passengerModulesAvailable = passengerModules;
+        this.travelCostFactor = this.hullType.getHullSize().getBasicTravelCostFactor();
         this.currentlyStationed = null;
     }
 
@@ -98,22 +103,26 @@ public class Starship {
         return crewMembers;
     }
 
-    //Basic method. TODO: Upgrade according to specification.
-    public void addCrewMembers(Integer crewMembers) {
-        if (crewMembers > 0 && this.crewMembers + crewMembers <= this.hullType.getMaxCrewMembers()) {
-            if (this.crewMembers >= this.hullType.getMinCrewMembers()) {
-                this.flightModification += this.crewClass.getSkillModifier();
-            } else if (this.crewMembers < this.hullType.getMinCrewMembers() && crewMembers > 0) {
-                this.flightModification += -5;
-            } else {
-                System.err.println("Not enough crew members to run that ship.");
-            }
-        } else {
-            System.err.println("Error! Not enough or too many crew members.");
-        }
+    //Basic method. TODO: Change according to specification.
+    public void addCrewMember(Crew crewMember) {
+        crewList.add(crewMember);
+        this.crewMembers++;
+        System.out.println(crewMember.getName() + " has been assigned to " + this.name);
+
+//        if (crewMembers > 0 && this.crewMembers + crewMembers <= this.hullType.getMaxCrewMembers()) {
+//            if (this.crewMembers >= this.hullType.getMinCrewMembers()) {
+//                this.flightModification += this.crewClass.getSkillModifier();
+//            } else if (this.crewMembers < this.hullType.getMinCrewMembers() && crewMembers > 0) {
+//                this.flightModification += -5;
+//            } else {
+//                System.err.println("Not enough crew members to run that ship.");
+//            }
+//        } else {
+//            System.err.println("Error! Not enough or too many crew members.");
+//        }
     }
 
-    public void removeCrewMembers(Integer crewMembers) {
+    public void removeCrewMember(Integer crewMembers) {
 
     }
 
@@ -445,10 +454,16 @@ public class Starship {
     }
 
     public void addToCargoList(Resource resource, Integer quantity) {
+        Integer occupiedSpace = resource.getParam().getOccupiedSpace();
         // getCargo(resource, quantity); - CargoFactory
         // cargoList.add(cargo);
-        this.freightModulesAvailable -= quantity * resource.getParam().getOccupiedSpace();
+        this.freightModulesAvailable -= quantity * occupiedSpace;
+
+        Integer freightModulesTaken = this.freightModules - freightModulesAvailable;
+        this.travelCostFactor += 0.33 * freightModulesTaken;
     }
+
+    public void removeFromCargoList(Resource resource, Integer quantity){}
 
 
 
@@ -493,7 +508,7 @@ public class Starship {
 
 
 
-    public Double travelDistance(HeavenlyBody destination) {
+    public Double travelDistance_Calculation(HeavenlyBody destination) {
         Double station_X = this.currentlyStationed.getLocationX();
         Double station_Y = this.currentlyStationed.getLocationY();
         Double station_Z = this.currentlyStationed.getLocationZ();
@@ -514,8 +529,16 @@ public class Starship {
 
 
 
-    public Double travelCost(HeavenlyBody destination) {
-        return travelDistance(destination) * this.hullType.getHullSize().getTravelCostFactor();
+    public Double travelCost_Calculation(HeavenlyBody destination) {
+        Double crewTravelBonus = 0.0;
+
+        for (Crew crewMember : crewList) {
+            crewTravelBonus += crewMember.getTravelBonus();
+        }
+
+        return travelDistance_Calculation(destination)
+                * this.hullType.getHullSize().getBasicTravelCostFactor()
+                + crewTravelBonus;
     }
 
 

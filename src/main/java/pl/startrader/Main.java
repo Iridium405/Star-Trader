@@ -111,17 +111,22 @@ public class Main {
 
         ship1.setCurrentlyStationed(earth);
         System.out.println(ship1.getName() + " currently stations on " + ship1.getCurrentlyStationed().getName());
-        ship1.travelDistance(asteroid01);
-        System.out.println(ship1.getName() + " travel distance to " + asteroid01.getName() + " equals " + ship1.travelDistance(asteroid01));
-        System.out.println("Travel cost: " + ship1.travelCost(asteroid01));
+        ship1.travelDistance_Calculation(asteroid01);
+        System.out.println(ship1.getName() + " travel distance to " + asteroid01.getName() + " equals " + ship1.travelDistance_Calculation(asteroid01));
+        System.out.println("Travel cost: " + ship1.travelCost_Calculation(asteroid01));
 
         System.out.println();
         ship1.setCurrentlyStationed(asteroid01);
         System.out.println(ship1.getName() + " currently stations on " + ship1.getCurrentlyStationed().getName());
-        ship1.travelDistance(earth);
-        System.out.println(ship1.getName() + " travel distance to " + earth.getName() + " equals " + ship1.travelDistance(earth));
-        System.out.println("Travel cost: " + ship1.travelCost(earth));
+        ship1.travelDistance_Calculation(earth);
+        System.out.println(ship1.getName() + " travel distance to " + earth.getName() + " equals " + ship1.travelDistance_Calculation(earth));
+        System.out.println("Travel cost: " + ship1.travelCost_Calculation(earth));
 
+        crewMember_2.upgradeCrewClass();
+        crewMember_2.upgradeCrewClass();
+        ship1.addCrewMember(crewMember_2);
+        System.out.println(ship1.getName() + " travel distance to " + earth.getName() + " equals " + ship1.travelDistance_Calculation(earth));
+        System.out.println("Travel cost: " + ship1.travelCost_Calculation(earth));
 
 
     }

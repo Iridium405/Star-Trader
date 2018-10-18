@@ -9,13 +9,13 @@ public enum HullSize {
     S   (2.0),
     XS  (1.0);
 
-    private Double travelCostFactor;
+    private Double basicTravelCostFactor;
 
-    HullSize(Double travelCostFactor) {
-        this.travelCostFactor = travelCostFactor;
+    HullSize(Double basicTravelCostFactor) {
+        this.basicTravelCostFactor = basicTravelCostFactor;
     }
 
-    public Double getTravelCostFactor() {
-        return travelCostFactor;
+    public Double getBasicTravelCostFactor() {
+        return basicTravelCostFactor;
     }
 }
