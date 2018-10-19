@@ -128,6 +128,10 @@ public class Main {
         System.out.println(ship1.getName() + " travel distance to " + earth.getName() + " equals " + ship1.travelDistance_Calculation(earth));
         System.out.println("Travel cost: " + ship1.travelCost_Calculation(earth));
 
+        System.out.println();
+        Starship ship2 = new Starship("Fangy-01",HullType.FANG);
+        System.out.println(ship2.getCurrentlyStationed());
+
 
     }
 

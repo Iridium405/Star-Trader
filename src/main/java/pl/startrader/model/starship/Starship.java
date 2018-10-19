@@ -6,6 +6,7 @@ import pl.startrader.model.resource.Resource;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 public class Starship {
 
@@ -285,7 +286,7 @@ public class Starship {
             this.lightWeaponsAmount += amount;
             this.lightWeaponInstalled = true;
             this.basicDamage += amount;
-            System.out.println(amount + " light weapon modules installed.");
+            System.out.println(amount + " light weapon modules installed (" + amountMod + " modules taken).");
         } else {
             System.err.println("Not enough space in a hull. Space left: " + this.modulesAvailable
                     + ". Space needed: " + amountMod + ".");
@@ -335,7 +336,7 @@ public class Starship {
                 this.mediumWeaponsAmount += amount;
                 this.mediumWeaponInstalled = true;
                 this.basicDamage += amount * 4;
-                System.out.println(amount + " medium weapon modules installed.");
+                System.out.println(amount + " medium weapon modules installed (" + amountMod + " modules taken).");
             } else {
                 System.err.println("Not enough space in a hull. Space left: " + this.modulesAvailable
                         + ". Space needed: " + amountMod + ".");
@@ -389,7 +390,7 @@ public class Starship {
                 this.heavyWeaponsAmount += amount;
                 this.heavyWeaponInstalled = true;
                 this.basicDamage += amount * 8;
-                System.out.println(amount + " heavy weapon modules installed.");
+                System.out.println(amount + " heavy weapon modules installed (" + amountMod + " modules taken).");
             } else {
                 System.err.println("Not enough space in a hull. Space left: " + this.modulesAvailable
                         + ". Space needed: " + amountMod + ".");
@@ -499,7 +500,11 @@ public class Starship {
 
 
     public HeavenlyBody getCurrentlyStationed() {
-        return currentlyStationed;
+        try {
+            return currentlyStationed;
+        } catch (NullPointerException ex) {
+            return null;
+        }
     }
 
     public void setCurrentlyStationed(HeavenlyBody currentlyStationed) {
