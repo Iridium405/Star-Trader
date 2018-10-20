@@ -22,7 +22,7 @@ public class Planet extends HeavenlyBody {
     private Integer security;
     private Integer militaryPower;
 
-    private List<Resource> mainPlanetResources;
+    private List<Resource> mainResources;
 
     private List<Resource> productionPermitted;
     private List<Resource> productionForbidden;
@@ -46,7 +46,7 @@ public class Planet extends HeavenlyBody {
         this.security = 0;
         this.militaryPower = 0;
 
-        this.mainPlanetResources = new ArrayList<>();
+        this.mainResources = new ArrayList<>();
     }
 
 
@@ -124,7 +124,16 @@ public class Planet extends HeavenlyBody {
 
     @Override
     public List<Resource> getMainResources() {
-        return mainPlanetResources;
+        return mainResources;
+    }
+
+    public void addMainResource(Resource resource) {
+        if(!this.mainResources.contains(resource) && this.mainResources.size() <= 3) {
+            this.mainResources.add(resource);
+            System.out.println(resource.getParam().getName() + " added as main resource on " + getName());
+        } else {
+            System.out.println("Resource cannot be added.");
+        }
     }
 
 

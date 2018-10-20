@@ -6,7 +6,11 @@ import pl.startrader.model.character.Crew;
 import pl.startrader.model.heavenly_body.Asteroid;
 import pl.startrader.model.heavenly_body.HeavenlyBody;
 import pl.startrader.model.heavenly_body.HeavenlyBodyFactory;
+import pl.startrader.model.heavenly_body.Planet;
+import pl.startrader.model.resource.animal.Cattle;
+import pl.startrader.model.resource.animal.Skins;
 import pl.startrader.model.resource.component.Prototype;
+import pl.startrader.model.resource.food.NaturalFood;
 import pl.startrader.model.resource.metal.Iridium;
 import pl.startrader.model.resource.metal.Platinum;
 import pl.startrader.model.resource.mineral.Jade;
@@ -18,7 +22,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        HeavenlyBody earth = HeavenlyBodyFactory.getHeavenlyBody("Planet", "Earth", 10, 5.0, 6.0, 0.0);
+        Planet earth = HeavenlyBodyFactory.getHeavenlyBody("Planet", "Earth", 10, 5.0, 6.0, 0.0);
         System.out.println(earth.toString());
 
         System.out.println(Dice.getInstance().throwModifiedDice(6,-2, false));
@@ -130,9 +134,14 @@ public class Main {
 
         System.out.println();
         Starship ship2 = new Starship("Fangy-01",HullType.FANG);
-        System.out.println(ship2.getCurrentlyStationed());
+        System.out.println(ship2.getName() + " currently stations on " + ship2.getCurrentlyStationed());
 
-
+        earth.addMainResource(Platinum.getInstance());
+        earth.addMainResource(NaturalFood.getInstance());
+        earth.addMainResource(Skins.getInstance());
+        System.out.println(earth.getMainResources());
+        earth.addMainResource(Jade.getInstance());
+        System.out.println(earth.getMainResources());
     }
 
 }
