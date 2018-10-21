@@ -47,10 +47,10 @@ public enum ResourceParam {
     PTFE        ("PTFE", POLYMER, 1);
 
 
+
     private String name;
     private ResourceType type;
     private Integer occupiedSpace;
-    private Integer productionDifficulty;
 
 
 

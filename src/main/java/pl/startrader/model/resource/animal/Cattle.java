@@ -9,7 +9,7 @@ public class Cattle extends Resource implements Breed {
     private static Cattle instance;
 
 
-    public Cattle() {
+    private Cattle() {
         super(ResourceParam.CATTLE);
 
     }
