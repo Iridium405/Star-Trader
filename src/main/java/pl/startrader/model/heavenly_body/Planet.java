@@ -85,7 +85,7 @@ public class Planet extends HeavenlyBody {
     private Double price_Preservatives;
     private Boolean demanded_Preservatives;
 
-    private Integer quantity_Spieces;
+    private Integer quantity_Spices;
     private Double price_Spices;
     private Boolean demanded_Spices;
 
@@ -251,7 +251,7 @@ public class Planet extends HeavenlyBody {
         this.price_Preservatives = 0.0;
         this.demanded_Preservatives = false;
 
-        this.quantity_Spieces = 0;
+        this.quantity_Spices = 0;
         this.price_Spices = 0.0;
         this.demanded_Spices = false;
 
@@ -794,12 +794,12 @@ public class Planet extends HeavenlyBody {
     }
 
 
-    public Integer getQuantity_Spieces() {
-        return quantity_Spieces;
+    public Integer getQuantity_Spices() {
+        return quantity_Spices;
     }
 
-    public void changeQuantity_Spieces(Integer quantity_Spieces) {
-        this.quantity_Spieces = quantity_Spieces;
+    public void changeQuantity_Spices(Integer quantity_Spices) {
+        this.quantity_Spices = quantity_Spices;
     }
 
     public Double getPrice_Spices() {
