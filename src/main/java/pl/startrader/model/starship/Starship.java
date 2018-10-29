@@ -2,6 +2,7 @@ package pl.startrader.model.starship;
 
 import pl.startrader.model.character.Crew;
 import pl.startrader.model.heavenly_body.HeavenlyBody;
+import pl.startrader.model.heavenly_body.Planet;
 import pl.startrader.model.resource.Resource;
 
 import java.util.ArrayList;
@@ -48,7 +49,7 @@ public class Starship {
 
     private Double travelCostFactor;
 
-    private HeavenlyBody currentlyStationed;
+    private Planet currentlyStationed;
 
 
 
@@ -454,14 +455,19 @@ public class Starship {
         return cargoList;
     }
 
+    //TODO: Check if kind of cargo already exists. If so, add new cargo to existing one - cumulative.
     public void addToCargoList(Resource resource, Integer quantity) {
         Integer occupiedSpace = resource.getParam().getOccupiedSpace();
-        // getCargo(resource, quantity); - CargoFactory
-        // cargoList.add(cargo);
-        this.freightModulesAvailable -= quantity * occupiedSpace;
 
-        Integer freightModulesTaken = this.freightModules - freightModulesAvailable;
-        this.travelCostFactor += 0.33 * freightModulesTaken;
+        if(resource.getQuantity(currentlyStationed) >= quantity) {
+            if (this.freightModulesAvailable - (quantity * occupiedSpace) >= 0) {
+                this.freightModulesAvailable -= quantity * occupiedSpace;
+
+                Cargo cargo = new Cargo(resource, quantity);
+                cargoList.add(cargo);
+                resource.subtractQuantity(currentlyStationed, quantity);
+            }
+        }
     }
 
     public void removeFromCargoList(Resource resource, Integer quantity){}
@@ -499,7 +505,7 @@ public class Starship {
 
 
 
-    public HeavenlyBody getCurrentlyStationed() {
+    public Planet getCurrentlyStationed() {
         try {
             return currentlyStationed;
         } catch (NullPointerException ex) {
@@ -507,7 +513,7 @@ public class Starship {
         }
     }
 
-    public void setCurrentlyStationed(HeavenlyBody currentlyStationed) {
+    public void setCurrentlyStationed(Planet currentlyStationed) {
         this.currentlyStationed = currentlyStationed;
     }
 
