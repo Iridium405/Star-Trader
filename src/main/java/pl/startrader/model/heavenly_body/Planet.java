@@ -488,6 +488,7 @@ public class Planet extends HeavenlyBody {
     }
 
 
+
     public Integer getQuantity_Decorative() {
         return quantity_Decorative;
     }
@@ -511,6 +512,7 @@ public class Planet extends HeavenlyBody {
     public void setDemanded_Decorative(Boolean demanded_Decorative) {
         this.demanded_Decorative = demanded_Decorative;
     }
+
 
 
     public Integer getQuantity_Endangered() {
@@ -538,6 +540,7 @@ public class Planet extends HeavenlyBody {
     }
 
 
+
     public Integer getQuantity_Experimental() {
         return quantity_Experimental;
     }
@@ -561,6 +564,7 @@ public class Planet extends HeavenlyBody {
     public void setDemanded_Expermiental(Boolean demanded_Expermiental) {
         this.demanded_Expermiental = demanded_Expermiental;
     }
+
 
 
     public Integer getQuantity_Skins() {
@@ -616,6 +620,7 @@ public class Planet extends HeavenlyBody {
     }
 
 
+
     public Integer getQuantity_Circuit() {
         return quantity_Circuit;
     }
@@ -639,6 +644,7 @@ public class Planet extends HeavenlyBody {
     public void setDemanded_Circuit(Boolean demanded_Circuit) {
         this.demanded_Circuit = demanded_Circuit;
     }
+
 
 
     public Integer getQuantity_Nanoelectronics() {
@@ -666,6 +672,7 @@ public class Planet extends HeavenlyBody {
     }
 
 
+
     public Integer getQuantity_Photodetector() {
         return quantity_Photodetector;
     }
@@ -689,6 +696,7 @@ public class Planet extends HeavenlyBody {
     public void setDemanded_Photodetector(Boolean demanded_Photodetector) {
         this.demanded_Photodetector = demanded_Photodetector;
     }
+
 
 
     public Integer getQuantity_Prototype() {
@@ -744,6 +752,7 @@ public class Planet extends HeavenlyBody {
     }
 
 
+
     public Integer getQuantity_NaturalFood() {
         return quantity_NaturalFood;
     }
@@ -767,6 +776,7 @@ public class Planet extends HeavenlyBody {
     public void setDemanded_NaturalFood(Boolean demanded_NaturalFood) {
         this.demanded_NaturalFood = demanded_NaturalFood;
     }
+
 
 
     public Integer getQuantity_Preservatives() {
@@ -794,6 +804,7 @@ public class Planet extends HeavenlyBody {
     }
 
 
+
     public Integer getQuantity_Spices() {
         return quantity_Spices;
     }
@@ -817,6 +828,7 @@ public class Planet extends HeavenlyBody {
     public void setDemanded_Spices(Boolean demanded_Spices) {
         this.demanded_Spices = demanded_Spices;
     }
+
 
 
     public Integer getQuantity_SyntheticFood() {
@@ -872,6 +884,7 @@ public class Planet extends HeavenlyBody {
     }
 
 
+
     public Integer getQuantity_Chemoterapeutics() {
         return quantity_Chemoterapeutics;
     }
@@ -895,6 +908,7 @@ public class Planet extends HeavenlyBody {
     public void setDemanded_Chemoterapeutics(Boolean demanded_Chemoterapeutics) {
         this.demanded_Chemoterapeutics = demanded_Chemoterapeutics;
     }
+
 
 
     public Integer getQuantity_GeneticDrugs() {
@@ -922,6 +936,7 @@ public class Planet extends HeavenlyBody {
     }
 
 
+
     public Integer getQuantity_Radiopharmaceuticals() {
         return quantity_Radiopharmaceuticals;
     }
@@ -945,6 +960,7 @@ public class Planet extends HeavenlyBody {
     public void setDemanded_Radiopharmaceuticals(Boolean demanded_Radiopharmaceuticals) {
         this.demanded_Radiopharmaceuticals = demanded_Radiopharmaceuticals;
     }
+
 
 
     public Integer getQuantity_Vaccines() {
@@ -1000,6 +1016,7 @@ public class Planet extends HeavenlyBody {
     }
 
 
+
     public Integer getQuantity_Iridium() {
         return quantity_Iridium;
     }
@@ -1023,6 +1040,7 @@ public class Planet extends HeavenlyBody {
     public void setDemanded_Iridium(Boolean demanded_Iridium) {
         this.demanded_Iridium = demanded_Iridium;
     }
+
 
 
     public Integer getQuantity_Platinum() {
@@ -1050,6 +1068,7 @@ public class Planet extends HeavenlyBody {
     }
 
 
+
     public Integer getQuantity_Plutonium() {
         return quantity_Plutonium;
     }
@@ -1073,6 +1092,7 @@ public class Planet extends HeavenlyBody {
     public void setDemanded_Plutonium(Boolean demanded_Plutonium) {
         this.demanded_Plutonium = demanded_Plutonium;
     }
+
 
 
     public Integer getQuantity_Titanium() {
@@ -1128,6 +1148,7 @@ public class Planet extends HeavenlyBody {
     }
 
 
+
     public Integer getQuantity_Fluorite() {
         return quantity_Fluorite;
     }
@@ -1151,6 +1172,7 @@ public class Planet extends HeavenlyBody {
     public void setDemanded_Fluorite(Boolean demanded_Fluorite) {
         this.demanded_Fluorite = demanded_Fluorite;
     }
+
 
 
     public Integer getQuantity_Jade() {
@@ -1178,6 +1200,7 @@ public class Planet extends HeavenlyBody {
     }
 
 
+
     public Integer getQuantity_Onyx() {
         return quantity_Onyx;
     }
@@ -1201,6 +1224,7 @@ public class Planet extends HeavenlyBody {
     public void setDemanded_Onyx(Boolean demanded_Onyx) {
         this.demanded_Onyx = demanded_Onyx;
     }
+
 
 
     public Integer getQuantity_Rhodonite() {
@@ -1256,6 +1280,7 @@ public class Planet extends HeavenlyBody {
     }
 
 
+
     public Integer getQuantity_PAN() {
         return quantity_PAN;
     }
@@ -1279,6 +1304,7 @@ public class Planet extends HeavenlyBody {
     public void setDemanded_PAN(Boolean demanded_PAN) {
         this.demanded_PAN = demanded_PAN;
     }
+
 
 
     public Integer getQuantity_PMMA() {
@@ -1306,6 +1332,7 @@ public class Planet extends HeavenlyBody {
     }
 
 
+
     public Integer getQuantity_POM() {
         return quantity_POM;
     }
@@ -1329,6 +1356,7 @@ public class Planet extends HeavenlyBody {
     public void setDemanded_POM(Boolean demanded_POM) {
         this.demanded_POM = demanded_POM;
     }
+
 
 
     public Integer getQuantity_PTFE() {

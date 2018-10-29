@@ -39,8 +39,8 @@ public class Chemotherapeutics extends Resource implements Production {
 
     @Override
     public void subtractQuantity(Planet planet, Integer quantity) {
-        if(quantity < 0) {
-            planet.changeQuantity_Chemoterapeutics(quantity);
+        if(quantity > 0) {
+            planet.changeQuantity_Chemoterapeutics(-quantity);
             System.out.println(quantity + "pcs of " + getParam().getName() + " added to stock on " + planet.getName());
         }
     }

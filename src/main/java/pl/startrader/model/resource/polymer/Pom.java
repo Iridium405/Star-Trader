@@ -39,8 +39,8 @@ public class Pom extends Resource implements Production {
 
     @Override
     public void subtractQuantity(Planet planet, Integer quantity) {
-        if(quantity < 0) {
-            planet.changeQuantity_POM(quantity);
+        if(quantity > 0) {
+            planet.changeQuantity_POM(-quantity);
             System.out.println(quantity + "pcs of " + getParam().getName() + " added to stock on " + planet.getName());
         }
     }

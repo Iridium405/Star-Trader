@@ -39,8 +39,8 @@ public class Experimental extends Resource implements Breed {
 
     @Override
     public void subtractQuantity(Planet planet, Integer quantity) {
-        if(quantity < 0) {
-            planet.changeQuantity_Experimental(quantity);
+        if(quantity > 0) {
+            planet.changeQuantity_Experimental(-quantity);
             System.out.println(quantity + "pcs of " + getParam().getName() + " added to stock on " + planet.getName());
         }
     }
