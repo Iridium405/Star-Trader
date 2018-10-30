@@ -2,6 +2,9 @@ package pl.startrader.model.heavenly_body;
 
 import pl.startrader.model.character.Administrator;
 import pl.startrader.model.character.CharacterGenerator;
+import pl.startrader.model.trade.BlackMarket;
+import pl.startrader.model.trade.Canteen;
+import pl.startrader.model.trade.Market;
 import pl.startrader.model.resource.Resource;
 
 import java.util.ArrayList;
@@ -23,6 +26,10 @@ public class Planet extends HeavenlyBody {
     private Integer militaryPower;
 
     private List<Resource> mainResources;
+
+    private Market market;
+    private BlackMarket blackMarket;
+    private Canteen canteen;
 
     private List<Resource> productionPermitted;
     private List<Resource> productionForbidden;
@@ -192,6 +199,10 @@ public class Planet extends HeavenlyBody {
         this.productionForbidden = new ArrayList<>();
         this.tradePermitted = new ArrayList<>();
         this.tradeForbidden = new ArrayList<>();
+
+        this.market = new Market();
+        this.blackMarket = new BlackMarket();
+        this.canteen = new Canteen();
 
 
 

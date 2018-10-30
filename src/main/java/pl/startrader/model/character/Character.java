@@ -42,9 +42,7 @@ public abstract class Character {
 
     @Override
     public String toString() {
-        return "\nThis character is " + role + " with connections:\n" +
-                "Criminal: " + getCriminalConnections() + " | " +
-                "Political: " + getPoliticalConnections() + " | " +
-                "Economic: " + getEconomicConnections();
+        return "\nNAME: " + getName() +
+                "\nROLE: " + getRole() + "\n";
     }
 }

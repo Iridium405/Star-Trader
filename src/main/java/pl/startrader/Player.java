@@ -18,6 +18,8 @@ public class Player {
     private Integer politicalConnections;
     private Integer economicConnections;
 
+
+    //TODO: Change reputation system - make it as a Planet field(?).
     private Integer reputationGammaLeporis;
     private Integer reputationEpsilonEridani;
     private Integer reputationTauCeti;
@@ -85,7 +87,7 @@ public class Player {
 
 
     public Double getAccountBalance() {
-        return accountBalance;
+        return Math.round(this.accountBalance*100)/100.0d;
     }
 
     public void setAccountBalance(Double accountBalance) {

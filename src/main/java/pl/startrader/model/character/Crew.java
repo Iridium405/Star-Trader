@@ -249,4 +249,9 @@ public class Crew extends Character {
         return travelBonus;
     }
 
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }
